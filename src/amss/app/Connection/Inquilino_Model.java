@@ -112,7 +112,7 @@ public final class Inquilino_Model extends Model {
     String query;
     Vector<String> parameters = new Vector<>();
 
-    query = "";
+    query = null;
     return getInquilinos(parameters, query);
   }
 
