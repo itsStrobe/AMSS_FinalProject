@@ -38,6 +38,7 @@
                         </ImageView>
                         <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="2.0" />
                         <Label text="Informacion General" />
+                        <Button mnemonicParsing="false" onAction="#loadInfo" text="Load" />
                      </children>
                   </VBox>
                   <TabPane prefHeight="519.0" prefWidth="593.0" tabClosingPolicy="UNAVAILABLE">

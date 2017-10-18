@@ -23,9 +23,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.StageStyle;
@@ -37,66 +39,91 @@ import sun.misc.Perf;
  */
 public class Inquilinos_Controller implements Initializable {
 
-    @FXML private TableView<Inquilino> inquilinosTable =  new TableView<>();
-    @FXML private TableColumn<Inquilino, Uuid> Uuid;
-    @FXML private TableColumn<Inquilino, String> Nombre;
-    @FXML private TableColumn<Inquilino, String> Direccion;
-    @FXML private TableColumn<Inquilino, Integer> Edad;
-    @FXML private TableColumn<Inquilino, String> Cuarto;
+  @FXML
+  private TableView<Inquilino> inquilinosTable = new TableView<>();
+  @FXML
+  private TableColumn<Inquilino, Uuid> Uuid;
+  @FXML
+  private TableColumn<Inquilino, String> Nombre;
+  @FXML
+  private TableColumn<Inquilino, String> Direccion;
+  @FXML
+  private TableColumn<Inquilino, Integer> Edad;
+  @FXML
+  private TableColumn<Inquilino, String> Cuarto;
+
+  Stage prevStage;
+
+  private Inquilino_Model model = new Inquilino_Model();
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
+
+    Nombre.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Nombre"));
+    Direccion.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Direccion"));
+    Edad.setCellValueFactory(new PropertyValueFactory<Inquilino, Integer>("Edad"));
+    Cuarto.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Cuarto"));
+
+    List<Inquilino> inquilinos = parselist();
+    inquilinosTable.getItems().setAll(inquilinos);
 
 
-    private Inquilino_Model model = new Inquilino_Model();
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        String fileName=location.getFile().substring(location.getFile().lastIndexOf('/')+1,location.getFile().length());
+  }
 
-        Uuid.setCellValueFactory(new PropertyValueFactory<Inquilino, Uuid>("Uuid"));
-        Nombre.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Nombre"));
-        Direccion.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Direccion"));
-        Edad.setCellValueFactory(new PropertyValueFactory<Inquilino, Integer>("Edad"));
-        Cuarto.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Cuarto"));
+  public void transition_Back() throws Exception {
+    String newScene = "sample.fxml";
+    Main.changeScene(newScene);
+  }
 
-        List<Inquilino> inquilinos = parselist();
-        inquilinosTable.getItems().setAll(parselist());
+  public void transition_Perfil() throws Exception {
+    String newScene = "Views/perfil.fxml";
+    Main.changeScene(newScene);
+  }
+
+  public void transition_NuevoInquilino() throws Exception {
+    String newScene = "Views/inquilinoForm.fxml";
+    Main.changeScene(newScene);
+  }
+
+  public void setPrevStage(Stage stage) {
+    this.prevStage = stage;
+  }
+
+  public void select_Inquilino() throws Exception {
+    if (inquilinosTable.getSelectionModel().getSelectedItem() != null) {
+      Inquilino inquilino = inquilinosTable.getSelectionModel().getSelectedItem();
+
+      Stage stage = new Stage(StageStyle.DECORATED);
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+
+      Pane myPane = (Pane) myLoader.load();
+      Scene myScene = new Scene(myPane);
+      stage.setScene(myScene);
+
+      Perfil_Controller controller = (Perfil_Controller) myLoader.<Perfil_Controller>getController();
+      controller.setSelectedInquilino(inquilino);
+      controller.setPrevStage(stage);
+
+      stage.setTitle("Nuevo Inquilino");
+
+      prevStage.close();
+
+      stage.show();
+    }
+  }
 
 
+  private List<Inquilino> parselist() {
+    List<Inquilino> allInquilinos = new ArrayList<>();
+    Collection<Inquilino> inquilinos = model.getAllInquilinos();
+    for (Inquilino inquilino : inquilinos) {
+      System.out.println(inquilino.getCuarto());
+      allInquilinos.add(inquilino);
     }
 
-    public void transition_Back() throws Exception{
-        String newScene = "sample.fxml";
-        Main.changeScene(newScene);
-    }
-
-    public void transition_Perfil() throws Exception{
-        String newScene = "Views/perfil.fxml";
-        Main.changeScene(newScene);
-    }
-
-    public void transition_NuevoInquilino() throws Exception{
-        String newScene = "Views/inquilinoForm.fxml";
-        Main.changeScene(newScene);
-    }
-
-    public void select_Inquilino() throws Exception{
-      if (inquilinosTable.getSelectionModel().getSelectedItem() != null) {
-          Inquilino selectedPerson = inquilinosTable.getSelectionModel().getSelectedItem();
-
-          String newScene = "Views/perfil.fxml";
-          Main.changeScene(newScene);
-      }
-    }
-
-
-    private List<Inquilino> parselist(){
-        List<Inquilino> allInquilinos = new ArrayList<>();
-        Collection<Inquilino> inquilinos = model.getAllInquilinos();
-        for (Inquilino inquilino: inquilinos) {
-            System.out.println(inquilino.getCuarto());
-            allInquilinos.add(inquilino);
-        }
-
-        return allInquilinos;
-    }
+    return allInquilinos;
+  }
 
 
 }

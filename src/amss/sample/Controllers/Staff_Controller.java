@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
  */
 public class Staff_Controller implements Initializable {
 
-    public void initialize(URL location, ResourceBundle resources) {
-        String fileName=location.getFile().substring(location.getFile().lastIndexOf('/')+1,location.getFile().length());
-    }
+  public void initialize(URL location, ResourceBundle resources) {
+    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
+  }
 
 }
