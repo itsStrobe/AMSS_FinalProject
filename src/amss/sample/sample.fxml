@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.sample.Controllers.Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="793.0">
+         <children>
+            <HBox>
+               <children>
+                  <VBox>
+                     <children>
+                        <MenuBar prefHeight="31.0" prefWidth="824.0">
+                           <menus>
+                              <Menu mnemonicParsing="false" text="Notificaciones" />
+                           </menus>
+                        </MenuBar>
+                        <Separator orientation="VERTICAL" />
+                        <Text opacity="0.32" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonos:    911 (Emergencias)         1240(Muerte)" textAlignment="CENTER" wrappingWidth="788.7273559570312">
+                           <font>
+                              <Font name="Apple Braille" size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator orientation="VERTICAL" />
+            <HBox prefHeight="12.0" prefWidth="793.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="489.0" text="Eventualidades" />
+                  <Button mnemonicParsing="false" prefHeight="6.0" prefWidth="38.0" text="+" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <TreeView prefHeight="457.0" prefWidth="527.0" />
+                  <VBox prefHeight="450.0" prefWidth="267.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#transition_Inquilinos" prefHeight="51.0" prefWidth="269.0" text="Inquilino" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#transition_Staff" prefHeight="51.0" prefWidth="269.0" text="Staff" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

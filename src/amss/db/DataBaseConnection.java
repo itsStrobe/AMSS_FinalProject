@@ -328,7 +328,7 @@ public final class DataBaseConnection {
           " INQUILINOID    VARCHAR(16)             NOT NULL, " +
           " NOMBRE         CHAR(50)                NOT NULL, " +
           " TELEFONO       CHAR(14)                NOT NULL, " +
-          " DIRECCION      TEXT                    NOT NULL  " +
+          " DIRECCION      TEXT                    NOT NULL,  " +
           " FOREIGN KEY(INQUILINOID) REFERENCES INQUILINOS(ID))";
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
