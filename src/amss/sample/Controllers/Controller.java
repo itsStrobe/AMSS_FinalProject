@@ -12,12 +12,10 @@ import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable{
-    private Inquilino_Model model = new Inquilino_Model();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String fileName=location.getFile().substring(location.getFile().lastIndexOf('/')+1,location.getFile().length());
-        System.out.print(model.getAllInquilinos());
     }
 
     //En cuanto aprenda a pasar parametros, pongo la funcion mejor. :)

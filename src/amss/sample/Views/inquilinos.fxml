@@ -38,14 +38,13 @@
                   <Button mnemonicParsing="false" onAction="#transition_NuevoInquilino" text="+" />
               </items>
             </ToolBar>
-            <TableView fx:id="inquilinosTable" onMouseClicked="#transition_Perfil" prefHeight="479.0" prefWidth="794.0">
+            <TableView fx:id="inquilinosTable" onMouseClicked="#select_Inquilino" prefHeight="479.0" prefWidth="794.0">
               <columns>
-                <TableColumn prefWidth="218.89601337909698" text="Imagen" />
-                <TableColumn prefWidth="142.32769775390625" text="Nombre" />
-                  <TableColumn prefWidth="88.67227172851562" text="Edad" />
-                  <TableColumn prefWidth="90.6805419921875" text="Cuarto" />
-                  <TableColumn minWidth="7.10284423828125" prefWidth="128.31939697265625" text="Atributo" />
-                  <TableColumn prefWidth="129.65447998046875" text="Atributo" />
+                <TableColumn fx:id="Uuid" prefWidth="218.89601337909698" text="Id" />
+                <TableColumn fx:id="Nombre" prefWidth="142.32769775390625" text="Nombre" />
+                  <TableColumn fx:id="Edad" prefWidth="88.67227172851562" text="Edad" />
+                  <TableColumn fx:id="Cuarto" prefWidth="90.6805419921875" text="Cuarto" />
+                  <TableColumn fx:id="Direccion" minWidth="7.10284423828125" prefWidth="128.31939697265625" text="Direccion" />
               </columns>
             </TableView>
          </children>

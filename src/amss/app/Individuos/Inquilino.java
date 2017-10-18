@@ -37,6 +37,19 @@ public final class Inquilino {
     this.strCuarto = strCuarto;
   }
 
+  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Time tFechaNacimiento, String strCuarto){
+
+    this.id = id;
+    this.strNombre = strNombre;
+    this.strDireccion = strDireccion;
+    this.iEdad = iEdad;
+    this.idResponsable = Uuid.NULL;
+    this.tFechaNacimiento = tFechaNacimiento;
+    this.cEstatus = 'a';
+    this.strCuarto = strCuarto;
+
+  }
+
   public Uuid getId()
   {
     return this.id;
@@ -59,7 +72,7 @@ public final class Inquilino {
 
   public int getEdad()
   {
-    return this.getEdad();
+    return this.iEdad;
   }
 
   public Uuid getIdResponsable()

@@ -1,5 +1,6 @@
 package amss.sample.Controllers;
 
+import amss.app.Individuos.Inquilino;
 import javafx.fxml.Initializable;
 import amss.sample.Main;
 
@@ -11,6 +12,8 @@ import java.util.ResourceBundle;
  * Created by German on 10/15/17.
  */
 public class Perfil_Controller implements Initializable {
+
+    Inquilino selectedInquilino;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
