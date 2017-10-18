@@ -22,5 +22,23 @@ public class Receta {
     this.tFechaInicio = tFechaInicio;
   }
 
+  public Uuid getId() {
+    return this.id;
+  }
 
+  public String getDocNombre() {
+    return this.strDocNombre;
+  }
+
+  public Uuid getIdPaciente() {
+    return this.idPaciente;
+  }
+
+  public Time getFechaInicio() {
+    return this.tFechaInicio;
+  }
+
+  public Vector<RecetaMedicina> getMedicinas() {
+    return this.medicinas;
+  }
 }

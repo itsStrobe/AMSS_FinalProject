@@ -14,8 +14,16 @@ public class Medicina {
     this.strNombre = null;
   }
 
-  public Medicina(Uuid id, String strNombre){
+  public Medicina(Uuid id, String strNombre) {
     this.id = id;
     this.strNombre = strNombre;
+  }
+
+  public Uuid getId() {
+    return this.id;
+  }
+
+  public String getNombre() {
+    return this.strNombre;
   }
 }

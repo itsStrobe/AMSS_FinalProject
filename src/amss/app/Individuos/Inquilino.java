@@ -35,4 +35,49 @@ public final class Inquilino {
     this.cEstatus = cEstatus;
     this.strCuarto = strCuarto;
   }
+
+  public Uuid getId()
+  {
+    return this.id;
+  }
+
+  public String getNombre()
+  {
+    return this.strNombre;
+  }
+
+  public String getDireccion()
+  {
+    return this.strDireccion;
+  }
+
+  public Time getFechaNacimiento()
+  {
+    return this.tFechaNacimiento;
+  }
+
+  public int getEdad()
+  {
+    return this.getEdad();
+  }
+
+  public Uuid getIdResponsable()
+  {
+    return this.idResponsable;
+  }
+
+  public char getEstatus()
+  {
+    return this.cEstatus;
+  }
+
+  public String getCuarto()
+  {
+    return this.strCuarto;
+  }
+
+  public Vector<Familiar> getFamiliares()
+  {
+    return familiares;
+  }
 }

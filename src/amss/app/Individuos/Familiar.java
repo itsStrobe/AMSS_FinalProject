@@ -17,4 +17,20 @@ public class Familiar {
     this.strTelefono = strTelefono;
     this.strDireccion = strDireccion;
   }
+
+  public Uuid getId() {
+    return this.id;
+  }
+
+  public String getNombre() {
+    return this.strNombre;
+  }
+
+  public String getTelefono() {
+    return this.strTelefono;
+  }
+
+  public String getDireccion() {
+    return this.strDireccion;
+  }
 }
