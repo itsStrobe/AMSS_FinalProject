@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec0c1e73-4c1b-43e3-a6dc-0aa1df237aa1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Connection/PacienteMedicina_Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Common/Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Common/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Familiar_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Familiar_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Medicina_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Medicina_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Receta_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Receta_Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Elementos/PacienteMedicina.java" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/PacienteMedicina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Elementos/Receta.java" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/Receta.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Individuos/Familiar.java" afterPath="$PROJECT_DIR$/src/amss/app/Individuos/Familiar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" afterPath="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java" afterPath="$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" afterPath="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" />
-    </list>
+    <list default="true" id="ec0c1e73-4c1b-43e3-a6dc-0aa1df237aa1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +88,8 @@
       <file leaf-file-name="RecetaMedicina_Model.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="126" column="34" lean-forward="false" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
+            <state relative-caret-position="153">
+              <caret line="107" column="18" lean-forward="true" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -889,12 +873,12 @@
       <workItem from="1508268991663" duration="20313000" />
       <workItem from="1508309797129" duration="274000" />
       <workItem from="1508331526446" duration="3372000" />
-      <workItem from="1508335036059" duration="3406000" />
+      <workItem from="1508335036059" duration="3597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53574000" />
+    <option name="totallyTimeSpent" value="53765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -1511,8 +1495,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="126" column="34" lean-forward="false" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
+        <state relative-caret-position="153">
+          <caret line="107" column="18" lean-forward="true" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
