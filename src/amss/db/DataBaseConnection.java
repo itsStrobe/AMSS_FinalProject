@@ -114,7 +114,7 @@ public final class DataBaseConnection {
 
   // Recupera los Familiares de un Inquilino en base a una query del Join de INQUILINO_FAMILIAR
   // y FAMILIARES
-  public Collection<Familiar> getFamiliaresOfInquilino(Vector<String> parameters, String str) {
+  public Collection<Familiar> getFamiliares(Vector<String> parameters, String str) {
 
     final Collection<Familiar> found = new ArrayList<>();
     int iParCounter = 1;
@@ -133,11 +133,12 @@ public final class DataBaseConnection {
 
       while (rs.next()) {
         Uuid familiarID = Uuid.parse(rs.getString("ID"));
+        Uuid inquilinoID = Uuid.parse(rs.getString("INQUILINOID"));
         String nombre = rs.getString("NOMBRE");
         String telefono = rs.getString("TELEFONO");
         String direccion = rs.getString("DIRECCION");
 
-        Familiar familiar = new Familiar(familiarID, nombre, telefono, direccion);
+        Familiar familiar = new Familiar(familiarID, inquilinoID, nombre, telefono, direccion);
         found.add(familiar);
       }
 
@@ -211,19 +212,14 @@ public final class DataBaseConnection {
       ResultSet rs = stmt.executeQuery();
 
       while (rs.next()) {
-        Uuid medicinaID = Uuid.parse(rs.getString("MEDICINAID"));
-        String medicinaNom = rs.getString("NOMBRE");
-
-        Medicina medicina = new Medicina(medicinaID, medicinaNom);
-
+        Uuid medicinaID = Uuid.parse(rs.getString("MEDICINA"));
+        Uuid recetaId = Uuid.parse(rs.getString("RECETA"));
         boolean morning = (rs.getInt("MANANA") == 1);
         boolean evening = (rs.getInt("TARDE") == 1);
         boolean night = (rs.getInt("NOCHE") == 1);
         Time tFechaFin = Time.fromMs(rs.getLong("FECHAFIN"));
 
-        RecetaMedicina recetaMedicina = new RecetaMedicina(morning, evening, night, tFechaFin);
-
-        recetaMedicina = new RecetaMedicina(medicina, recetaMedicina);
+        RecetaMedicina recetaMedicina = new RecetaMedicina(medicinaID, recetaId, morning, evening, night, tFechaFin);
         found.add(recetaMedicina);
       }
 
@@ -297,14 +293,11 @@ public final class DataBaseConnection {
       ResultSet rs = stmt.executeQuery();
 
       while (rs.next()) {
-        Uuid medicinaID = Uuid.parse(rs.getString("MEDICINAID"));
-        String medicinaNom = rs.getString("NOMBRE");
-
-        Medicina medicina = new Medicina(medicinaID, medicinaNom);
-
+        Uuid pacienteID = Uuid.parse(rs.getString("PACIENTE"));
+        Uuid medicinaID = Uuid.parse(rs.getString("MEDICINA"));
         int cantidad = rs.getInt("CANTIDAD");
 
-        PacienteMedicina pacienteMedicina = new PacienteMedicina(medicina, cantidad);
+        PacienteMedicina pacienteMedicina = new PacienteMedicina(medicinaID, pacienteID, cantidad);
         found.add(pacienteMedicina);
       }
 
@@ -332,9 +325,11 @@ public final class DataBaseConnection {
     try {
       String sql = "CREATE TABLE FAMILIARES " +
           "(ID             VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " INQUILINOID    VARCHAR(16)             NOT NULL, " +
           " NOMBRE         CHAR(50)                NOT NULL, " +
           " TELEFONO       CHAR(14)                NOT NULL, " +
-          " DIRECCION      TEXT                    NOT NULL)";
+          " DIRECCION      TEXT                    NOT NULL  " +
+          " FOREIGN KEY(INQUILINOID) REFERENCES INQUILINOS(ID))";
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
@@ -417,7 +412,7 @@ public final class DataBaseConnection {
     try {
       String sql = "CREATE TABLE MEDICINA_PACIENTE " +
           "(ID          VARCHAR(32) PRIMARY KEY NOT NULL, " +
-          " PACIENTE    VARCHAR (16)            NOT NULL, " +
+          " PACIENTE    VARCHAR(16)             NOT NULL, " +
           " MEDICINA    VARCHAR(16)             NOT NULL, " +
           " CANTIDAD    INTEGER                 DEFAULT 0, " +
           " FOREIGN KEY(PACIENTE) REFERENCES INQUILINOS(ID), " +
@@ -425,12 +420,14 @@ public final class DataBaseConnection {
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
+      c.commit();
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
     System.out.println("Table <MEDICINA_PACIENTE> created successfully");
 
+    /*
     try {
       String sql = "CREATE TABLE INQUILINO_FAMILIAR " +
           "(ID                VARCHAR(16) PRIMARY KEY NOT NULL, " +
@@ -441,12 +438,14 @@ public final class DataBaseConnection {
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
-      c.commit();
+      // c.commit();
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
     System.out.println("Table <INQUILINO_FAMILIAR> created successfully");
+    */
+
     close();
   }
 
@@ -485,10 +484,12 @@ public final class DataBaseConnection {
       stmt.executeUpdate(sql);
       stmt.close();
 
+      /*
       stmt = c.createStatement();
       sql = "DROP TABLE INQUILINO_FAMILIAR";
       stmt.executeUpdate(sql);
       stmt.close();
+      */
 
       c.commit();
     } catch (Exception e) {
