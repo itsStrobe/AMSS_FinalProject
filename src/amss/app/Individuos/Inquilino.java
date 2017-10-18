@@ -6,6 +6,7 @@ import amss.app.util.Uuid;
 import amss.app.Individuos.Familiar;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Vector;
 
 /**
@@ -23,7 +24,7 @@ public final class Inquilino {
   // FOTOGRAFIA
   private char cEstatus;
   private String strCuarto;
-  private Vector<Familiar> familiares;
+  private Collection<Familiar> familiares;
 
   public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Uuid idResponsable, char cEstatus, String strCuarto) {
     // El ID debe ser creada en el controlador. Preguntar a Jose por la funcion para generar Uuids.
@@ -76,7 +77,7 @@ public final class Inquilino {
     return this.strCuarto;
   }
 
-  public Vector<Familiar> getFamiliares()
+  public Collection<Familiar> getFamiliares()
   {
     return familiares;
   }

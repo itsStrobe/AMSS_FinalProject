@@ -11,7 +11,7 @@ public abstract class Model {
 
   protected static DataBaseConnection dbConnection = new DataBaseConnection();
 
-  public abstract void add();
+  protected abstract void add();
 
-  public abstract void update();
+  protected abstract void update();
 }

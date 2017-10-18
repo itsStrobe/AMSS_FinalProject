@@ -41,6 +41,13 @@ public class SQLFormatter {
     return Character.toString(character);
   }
 
+  public static String sqlBool(boolean bool) {
+    if(bool)
+      return "1";
+    else
+      return "0";
+  }
+
   public static String sqlTime(Time userTime) {
     Long inMs = userTime.inMs();
     String sqlCreationTime = Long.toString(inMs);

@@ -3,6 +3,7 @@ package amss.app.Connection;
 import amss.app.Common.Model;
 import amss.app.Elementos.Receta;
 import amss.app.Individuos.Familiar;
+import amss.app.Individuos.Inquilino;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
@@ -24,7 +25,7 @@ public class Familiar_Model extends Model{
   }
 
   @Override
-  public void add() {
+  protected void add() {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -59,7 +60,7 @@ public class Familiar_Model extends Model{
   }
 
   @Override
-  public void update() {
+  protected void update() {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -91,15 +92,15 @@ public class Familiar_Model extends Model{
   }
 
   // FUNCIONES GET
-  public Collection<Receta> getAllFamiliares() {
+  public Collection<Familiar> getAllFamiliares() {
     String query;
     Vector<String> parameters = new Vector<>();
 
-    query = "";
+    query = null;
     return getFamiliares(parameters, query);
   }
 
-  public Collection<Receta> getSingleFamiliarById(Uuid id) {
+  public Collection<Familiar> getSingleFamiliarById(Uuid id) {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -109,11 +110,21 @@ public class Familiar_Model extends Model{
     return getFamiliares(parameters, query);
   }
 
-  private Collection<Receta> getFamiliares(Vector<String> parameters, String where) {
+  public Collection<Familiar> getFamiliaresOfInquilino(Inquilino inquilino) {
+    String query;
+    Vector<String> parameters = new Vector<>();
+
+    parameters.add(SQLFormatter.sqlID(inquilino.getId()));
+    query = "INQUILINOID = ?";
+
+    return getFamiliares(parameters, query);
+  }
+
+  private Collection<Familiar> getFamiliares(Vector<String> parameters, String where) {
     String query = "SELECT * FROM FAMILIARES";
     if (where != null)
       query += " where " + where;
     query += ";";
-    return dbConnection.getRecetas(parameters, query);
+    return dbConnection.getFamiliares(parameters, query);
   }
 }

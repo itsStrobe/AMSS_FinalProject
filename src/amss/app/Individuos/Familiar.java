@@ -7,12 +7,14 @@ import amss.app.util.Uuid;
  */
 public class Familiar {
   private Uuid id;
+  private Uuid inquilinoId;
   private String strNombre;
   private String strTelefono;
   private String strDireccion;
 
-  public Familiar(Uuid id, String strNombre, String strTelefono, String strDireccion) {
+  public Familiar(Uuid id, Uuid inquilinoId, String strNombre, String strTelefono, String strDireccion) {
     this.id = id;
+    this.id = inquilinoId;
     this.strNombre = strNombre;
     this.strTelefono = strTelefono;
     this.strDireccion = strDireccion;
@@ -20,6 +22,10 @@ public class Familiar {
 
   public Uuid getId() {
     return this.id;
+  }
+
+  public Uuid getInquilinoId() {
+    return this.inquilinoId;
   }
 
   public String getNombre() {

@@ -23,7 +23,7 @@ public class Medicina_Model extends Model{
   }
 
   @Override
-  public void add() {
+  protected void add() {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -56,7 +56,7 @@ public class Medicina_Model extends Model{
   }
 
   @Override
-  public void update() {
+  protected void update() {
     String query;
     Vector<String> parameters = new Vector<>();
 

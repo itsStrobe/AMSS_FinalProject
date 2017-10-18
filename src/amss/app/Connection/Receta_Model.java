@@ -23,7 +23,7 @@ public class Receta_Model extends Model {
   }
 
   @Override
-  public void add() {
+  protected void add() {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -60,7 +60,7 @@ public class Receta_Model extends Model {
   }
 
   @Override
-  public void update() {
+  protected void update() {
     String query;
     Vector<String> parameters = new Vector<>();
 
@@ -98,7 +98,17 @@ public class Receta_Model extends Model {
     String query;
     Vector<String> parameters = new Vector<>();
 
-    query = "";
+    query = null;
+    return getRecetas(parameters, query);
+  }
+
+  public Collection<Receta> getAllRecetasOfPaciente(Uuid paciente) {
+    String query;
+    Vector<String> parameters = new Vector<>();
+
+    parameters.add(SQLFormatter.sqlID(paciente));
+    query = "PACIENTE = ?";
+
     return getRecetas(parameters, query);
   }
 
