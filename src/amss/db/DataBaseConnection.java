@@ -96,7 +96,7 @@ public final class DataBaseConnection {
         char estatus = rs.getString("ESTATUS").charAt(0);
         String cuarto = rs.getString("CUARTO");
 
-        Inquilino inquilino = new Inquilino(inquilinoID, inquilinoNombre, direccion, edad, responsableID, estatus, cuarto);
+        Inquilino inquilino = new Inquilino(inquilinoID, inquilinoNombre, direccion, edad, fechaNacimiento, responsableID, estatus, cuarto);
         found.add(inquilino);
       }
 

@@ -80,10 +80,10 @@ public final class Inquilino_Model extends Model {
       query = "UPDATE INQUILINOS set" +
           " NOMBRE = ?," +
           " DIRECCION = ?," +
-          " FECHANACIMIENTO = ?" +
-          " EDAD = ?" +
-          " RESPONSABLE = ?" +
-          " ESTATUS = ?" +
+          " FECHANACIMIENTO = ?," +
+          " EDAD = ?," +
+          " RESPONSABLE = ?," +
+          " ESTATUS = ?," +
           " CUARTO = ?" +
           " where ID = ?" +
           ";";

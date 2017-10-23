@@ -31,11 +31,13 @@ public class Familiar_Model extends Model{
 
     try {
       parameters.add(SQLFormatter.sqlID(familiar.getId()));
+      parameters.add(SQLFormatter.sqlID(familiar.getInquilinoId()));
       parameters.add(familiar.getNombre());
       parameters.add(familiar.getTelefono());
       parameters.add(familiar.getDireccion());
-      query = "INSERT INTO RECETAS (ID,NOMBRE,TELEFONO,DIRECCION) " +
-          "VALUES ( ?, ?, ?, ?);";
+      System.out.println("En BD, INQUILINOID: " + familiar.getInquilinoId());
+      query = "INSERT INTO FAMILIARES (ID,INQUILINOID,NOMBRE,TELEFONO,DIRECCION) " +
+          "VALUES ( ?, ?, ?, ?, ?);";
 
       dbConnection.dbUpdate(parameters, query);
       LOG.info(
@@ -65,14 +67,16 @@ public class Familiar_Model extends Model{
     Vector<String> parameters = new Vector<>();
 
     try {
+      parameters.add(SQLFormatter.sqlID(familiar.getInquilinoId()));
       parameters.add(familiar.getNombre());
       parameters.add(familiar.getTelefono());
       parameters.add(familiar.getDireccion());
       parameters.add(SQLFormatter.sqlID(familiar.getId()));
       query = "UPDATE FAMILIARES set" +
-          " DOCTOR = ?," +
-          " PACIENTE = ?," +
-          " FECHA = ?" +
+          " INQUILINOID = ?," +
+          " NOMBRE = ?," +
+          " TELEFONO = ?," +
+          " DIRECCION = ?" +
           " where ID = ?" +
           ";";
 

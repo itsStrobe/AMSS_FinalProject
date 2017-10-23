@@ -106,7 +106,7 @@ public class Inquilinos_Controller implements Initializable {
       stage.setScene(myScene);
 
       Perfil_Controller controller = (Perfil_Controller) myLoader.<Perfil_Controller>getController();
-      controller.setSelectedInquilino(inquilino);
+      controller.setInquilinoInfo(inquilino);
       controller.setPrevStage(stage);
 
       stage.setTitle("Nuevo Inquilino");

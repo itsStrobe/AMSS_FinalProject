@@ -14,7 +14,7 @@ public class Familiar {
 
   public Familiar(Uuid id, Uuid inquilinoId, String strNombre, String strTelefono, String strDireccion) {
     this.id = id;
-    this.id = inquilinoId;
+    this.inquilinoId = inquilinoId;
     this.strNombre = strNombre;
     this.strTelefono = strTelefono;
     this.strDireccion = strDireccion;

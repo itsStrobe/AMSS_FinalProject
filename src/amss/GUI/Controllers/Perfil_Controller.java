@@ -1,5 +1,6 @@
 package amss.GUI.Controllers;
 
+import amss.app.Individuos.Familiar;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.SQLFormatter;
 import amss.app.Connection.Inquilino_Model;
@@ -24,7 +25,7 @@ import java.util.ResourceBundle;
 public class Perfil_Controller implements Initializable {
 
   private Inquilino selectedInquilino;
-  private Inquilino_Model model = new Inquilino_Model();
+  private Inquilino_Model inquilino_model = new Inquilino_Model();
 
   @FXML
   private Label inqID = new Label();
@@ -46,7 +47,7 @@ public class Perfil_Controller implements Initializable {
     String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
   }
 
-  public void setSelectedInquilino(Inquilino inquilino) {
+  public void setInquilinoInfo(Inquilino inquilino) {
     System.out.println(inquilino.getNombre());
     this.inqID.setText(SQLFormatter.sqlID(inquilino.getId()));
     this.inqNombre.setText(inquilino.getNombre());
@@ -56,6 +57,16 @@ public class Perfil_Controller implements Initializable {
     this.inqCuarto.setText(inquilino.getCuarto());
   }
 
+  private void setSelectedInquilino() {
+    Collection<Inquilino> inquilinos = null;
+    try {
+      inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
+    } catch (IOException e) {}
+
+    selectedInquilino = inquilinos.iterator().next();
+    System.out.println("This Inquilino: " + selectedInquilino.getNombre());
+  }
+
   public void setPrevStage(Stage stage) {
     this.prevStage = stage;
   }
@@ -63,7 +74,7 @@ public class Perfil_Controller implements Initializable {
   public void loadInfo() {
     Collection<Inquilino> inquilinos = null;
     try {
-      inquilinos = model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
+      inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
     } catch (IOException e) {}
 
     selectedInquilino = inquilinos.iterator().next();
@@ -82,6 +93,27 @@ public class Perfil_Controller implements Initializable {
     controller.setPrevStage(stage);
 
     stage.setTitle("Inquilinos");
+
+    prevStage.close();
+
+    stage.show();
+  }
+
+  public void agregarFamiliar() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/familiarForm.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    setSelectedInquilino();
+
+    FamiliarForm_Controller controller = (FamiliarForm_Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+    controller.setInquilinoInfo(this.selectedInquilino);
+
+    stage.setTitle("Nuevo Familiar");
 
     prevStage.close();
 

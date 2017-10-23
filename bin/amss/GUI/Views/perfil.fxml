@@ -93,7 +93,7 @@
                                           <TableColumn prefWidth="76.68292236328125" text="Telefono" />
                                           <TableColumn prefWidth="163.4298858642578">
                                              <graphic>
-                                                <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
+                                                <Button mnemonicParsing="false" onAction="#agregarFamiliar" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
                                              </graphic>
                                           </TableColumn>
                                        </columns>
