@@ -5,6 +5,7 @@ import amss.app.Elementos.Medicina;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
+import javafx.util.StringConverter;
 
 import java.util.Collection;
 import java.util.Vector;
@@ -90,7 +91,7 @@ public class Medicina_Model extends Model{
     String query;
     Vector<String> parameters = new Vector<>();
 
-    query = "";
+    query = null;
     return getMedicinas(parameters, query);
   }
 
@@ -100,6 +101,16 @@ public class Medicina_Model extends Model{
 
     parameters.add(SQLFormatter.sqlID(id));
     query = "ID = ?";
+
+    return getMedicinas(parameters, query);
+  }
+
+  public Collection<Medicina> getSingleMedicinaByName(String name) {
+    String query;
+    Vector<String> parameters = new Vector<>();
+
+    parameters.add(name);
+    query = "NOMBRE = ?";
 
     return getMedicinas(parameters, query);
   }

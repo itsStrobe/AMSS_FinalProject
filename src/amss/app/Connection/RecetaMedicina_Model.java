@@ -34,11 +34,11 @@ public class RecetaMedicina_Model extends Model {
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getId(), recetaMedicina.getRecetaId()));
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getRecetaId()));
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getId()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getMorning()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getEvening()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getNight()));
+      parameters.add(SQLFormatter.sqlInt((recetaMedicina.getMorning())));
+      parameters.add(SQLFormatter.sqlInt(recetaMedicina.getEvening()));
+      parameters.add(SQLFormatter.sqlInt(recetaMedicina.getNight()));
       parameters.add(SQLFormatter.sqlTime(recetaMedicina.getEndDate()));
-      query = "INSERT INTO RECETAS (ID,RECETA,MEDICINA,MANANA,TARDE,NOCHE,FECHAFIN) " +
+      query = "INSERT INTO RECETA_MEDICINA (ID,RECETA,MEDICINA,MANANA,TARDE,NOCHE,FECHAFIN) " +
           "VALUES ( ?, ?, ?, ?, ?, ?, ?);";
 
       dbConnection.dbUpdate(parameters, query);
@@ -73,9 +73,9 @@ public class RecetaMedicina_Model extends Model {
     try {
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getRecetaId()));
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getId()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getMorning()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getEvening()));
-      parameters.add(SQLFormatter.sqlBool(recetaMedicina.getNight()));
+      parameters.add(SQLFormatter.sqlInt(recetaMedicina.getMorning()));
+      parameters.add(SQLFormatter.sqlInt(recetaMedicina.getEvening()));
+      parameters.add(SQLFormatter.sqlInt(recetaMedicina.getNight()));
       parameters.add(SQLFormatter.sqlTime(recetaMedicina.getEndDate()));
       parameters.add(SQLFormatter.sqlID(recetaMedicina.getId(), recetaMedicina.getRecetaId()));
       query = "UPDATE RECETA_MEDICINA set" +

@@ -23,6 +23,10 @@ public class PacienteMedicina extends Medicina {
     this.iCantidad = iCantidad;
   }
 
+  public void update(int iMovimiento) {
+    this.iCantidad += iMovimiento;
+  }
+
   public int getCantidad() {
     return this.iCantidad;
   }

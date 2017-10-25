@@ -80,10 +80,10 @@ public final class Inquilino_Model extends Model {
       query = "UPDATE INQUILINOS set" +
           " NOMBRE = ?," +
           " DIRECCION = ?," +
-          " FECHANACIMIENTO = ?" +
-          " EDAD = ?" +
-          " RESPONSABLE = ?" +
-          " ESTATUS = ?" +
+          " FECHANACIMIENTO = ?," +
+          " EDAD = ?," +
+          " RESPONSABLE = ?," +
+          " ESTATUS = ?," +
           " CUARTO = ?" +
           " where ID = ?" +
           ";";
@@ -112,7 +112,7 @@ public final class Inquilino_Model extends Model {
     String query;
     Vector<String> parameters = new Vector<>();
 
-    query = "";
+    query = null;
     return getInquilinos(parameters, query);
   }
 

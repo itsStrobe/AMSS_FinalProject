@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.RecetaForm_Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="794.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#transition_Back" onMenuValidation="#transition_Back" onShowing="#transition_Back" onShown="#transition_Back">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label prefHeight="70.0" prefWidth="794.0" text="                                                                       Nueva Receta" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="inqID" prefHeight="25.0" prefWidth="525.0" textAlignment="RIGHT" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="94.0" prefWidth="76.0" />
+                  <VBox prefHeight="97.0" prefWidth="183.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Doctor:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="483.0" prefWidth="492.0">
+                     <children>
+                        <TextField fx:id="doctorNombre" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="56.0" prefWidth="794.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="77.0" />
+                  <VBox prefHeight="97.0" prefWidth="183.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Nombre Medicamento:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Frecuecia" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Fecha Fin:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="483.0" prefWidth="492.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ChoiceBox fx:id="medSelect" prefWidth="150.0" />
+                              <Button mnemonicParsing="false" onAction="#addMedicamento" text="Agregar" />
+                           </children>
+                        </HBox>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Mañana" textAlignment="CENTER" />
+                              <TextField fx:id="medMa" prefHeight="25.0" prefWidth="38.0" promptText="0" />
+                              <Separator prefHeight="31.0" prefWidth="34.0" />
+                              <Label text="Tarde" textAlignment="CENTER" />
+                              <TextField fx:id="medTa" prefHeight="25.0" prefWidth="38.0" promptText="0" />
+                              <Separator prefHeight="31.0" prefWidth="34.0" />
+                              <Label text="Noche" textAlignment="CENTER" />
+                              <TextField fx:id="medNo" prefHeight="25.0" prefWidth="38.0" promptText="0" />
+                           </children>
+                        </HBox>
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <DatePicker fx:id="fechaSelect" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="61.0" prefWidth="608.0">
+               <children>
+                  <Separator prefHeight="0.0" prefWidth="349.0" />
+                  <Button mnemonicParsing="false" onAction="#create" text="Crear" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

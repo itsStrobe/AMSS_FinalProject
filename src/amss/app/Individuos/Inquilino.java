@@ -26,15 +26,42 @@ public final class Inquilino {
   private String strCuarto;
   private Collection<Familiar> familiares;
 
-  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Uuid idResponsable, char cEstatus, String strCuarto) {
-    // El ID debe ser creada en el controlador. Preguntar a Jose por la funcion para generar Uuids.
+  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Time tFechaNacimiento, Uuid idResponsable, char cEstatus, String strCuarto) {
     this.id = id;
     this.strNombre = strNombre;
     this.strDireccion = strDireccion;
     this.iEdad = iEdad;
+    this.tFechaNacimiento = tFechaNacimiento;
     this.idResponsable = idResponsable;
     this.cEstatus = cEstatus;
     this.strCuarto = strCuarto;
+  }
+
+  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Time tFechaNacimiento, String strCuarto){
+
+    this.id = id;
+    this.strNombre = strNombre;
+    this.strDireccion = strDireccion;
+    this.iEdad = iEdad;
+    this.tFechaNacimiento = tFechaNacimiento;
+    this.idResponsable = Uuid.NULL;
+    this.cEstatus = 'a';
+    this.strCuarto = strCuarto;
+  }
+
+  public Inquilino(Inquilino inquilino) {
+    this.id = inquilino.id;
+    this.strNombre = inquilino.strNombre;
+    this.strDireccion = inquilino.strDireccion;
+    this.iEdad = inquilino.iEdad;
+    this.tFechaNacimiento = inquilino.tFechaNacimiento;
+    this.idResponsable = Uuid.NULL;
+    this.cEstatus = inquilino.cEstatus;
+    this.strCuarto = inquilino.strCuarto;
+  }
+
+  public void setResponsable(Familiar responsable) {
+    this.idResponsable = responsable.getId();
   }
 
   public Uuid getId()
@@ -59,7 +86,7 @@ public final class Inquilino {
 
   public int getEdad()
   {
-    return this.getEdad();
+    return this.iEdad;
   }
 
   public Uuid getIdResponsable()
