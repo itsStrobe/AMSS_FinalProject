@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.MedicinaForm_Controller">
+   <children>
+      <VBox layoutX="-4.0" layoutY="-3.0" prefHeight="413.0" prefWidth="614.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="604.0" text="Nueva Medicina" textAlignment="CENTER" />
+            <HBox prefHeight="242.0" prefWidth="600.0">
+               <children>
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="242.0" prefWidth="29.0" />
+                  <VBox prefHeight="242.0" prefWidth="129.0">
+                     <children>
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <Label prefHeight="26.0" prefWidth="126.0" text="Medicina" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <Label prefHeight="25.0" prefWidth="130.0" text="Cantidad:" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <Label prefHeight="24.0" prefWidth="133.0" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="242.0" prefWidth="274.0">
+                     <children>
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <TextField fx:id="idLabel" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <TextField fx:id="cantidadLabel" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                        <Separator opacity="0.0" prefHeight="16.0" prefWidth="129.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="99.0" prefWidth="257.0" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#add_Medicina" text="Crear" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

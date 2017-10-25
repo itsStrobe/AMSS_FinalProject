@@ -68,13 +68,13 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
+                                    <TableView fx:id="medicinasTable" layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="106.41929626464844" text="Nombre" />
-                                          <TableColumn minWidth="0.0" prefWidth="277.7420654296875" text="Cantidad" />
+                                          <TableColumn fx:id="PacienteId" prefWidth="106.41929626464844" text="Nombre" />
+                                          <TableColumn fx:id="cantidadLabelMedicinas" minWidth="0.0" prefWidth="277.7420654296875" text="Cantidad" />
                                           <TableColumn prefWidth="196.25799560546875">
                                              <graphic>
-                                                <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
+                                                <Button mnemonicParsing="false" onAction="#agregarMedicina" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
                                              </graphic>
                                           </TableColumn>
                                        </columns>
@@ -89,7 +89,7 @@
                                  <children>
                                     <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="76.34140014648438" text="Nombre" />
+                                          <TableColumn fx:id="PacienteId" prefWidth="76.34140014648438" text="Medicina" />
                                           <TableColumn prefWidth="76.68292236328125" text="Telefono" />
                                           <TableColumn prefWidth="163.4298858642578">
                                              <graphic>
