@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.RecetaView_Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="794.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#transition_Back" onMenuValidation="#transition_Back" onShowing="#transition_Back" onShown="#transition_Back">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <ToolBar prefHeight="21.0" prefWidth="600.0">
+               <items>
+                  <Label text="Nombre:" />
+                  <TextField prefHeight="27.0" prefWidth="205.0" />
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="74.0" />
+                  <Button mnemonicParsing="false" onAction="#LoadInfo" text="Cargar" />
+                  <Separator prefHeight="23.0" prefWidth="81.0" />
+                  <Label layoutX="10.0" layoutY="13.0" text="Filtros:" />
+                  <ChoiceBox prefHeight="5.0" prefWidth="130.0" />
+                  <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="68.0" text="Buscar" />
+                  <Button mnemonicParsing="false" onAction="#addMedicamento" text="+" />
+               </items>
+            </ToolBar>
+            <Label fx:id="inqID" text="ID" />
+            <TableView fx:id="recetaMedicinaTable" prefHeight="479.0" prefWidth="794.0">
+               <columns>
+                  <TableColumn fx:id="Id" prefWidth="218.89601337909698" text="Id" />
+                  <TableColumn fx:id="Nombre" prefWidth="142.32769775390625" text="Nombre" />
+                  <TableColumn fx:id="EndDate" prefWidth="88.67227172851562" text="Fecha Fin" />
+                  <TableColumn fx:id="Morning" prefWidth="90.6805419921875" text="Manana" />
+                  <TableColumn fx:id="Evening" minWidth="7.10284423828125" prefWidth="128.31939697265625" text="Tarde" />
+                  <TableColumn fx:id="Night" minWidth="7.10284423828125" prefWidth="128.31939697265625" text="Noche" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</Pane>

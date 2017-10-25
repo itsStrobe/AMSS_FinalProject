@@ -172,7 +172,7 @@ public final class DataBaseConnection {
 
       ResultSet rs = stmt.executeQuery();
 
-      if (rs.next()) {
+      while (rs.next()) {
         Uuid id = Uuid.parse(rs.getString("ID"));
         String strDocNombre = rs.getString("DOCTOR");
         Uuid pacienteID = Uuid.parse(rs.getString("PACIENTE"));
@@ -214,9 +214,9 @@ public final class DataBaseConnection {
       while (rs.next()) {
         Uuid medicinaID = Uuid.parse(rs.getString("MEDICINA"));
         Uuid recetaId = Uuid.parse(rs.getString("RECETA"));
-        boolean morning = (rs.getInt("MANANA") == 1);
-        boolean evening = (rs.getInt("TARDE") == 1);
-        boolean night = (rs.getInt("NOCHE") == 1);
+        int morning = rs.getInt("MANANA");
+        int evening = rs.getInt("TARDE")  ;
+        int night = rs.getInt("NOCHE");
         Time tFechaFin = Time.fromMs(rs.getLong("FECHAFIN"));
 
         RecetaMedicina recetaMedicina = new RecetaMedicina(medicinaID, recetaId, morning, evening, night, tFechaFin);

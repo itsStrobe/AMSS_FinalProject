@@ -45,6 +45,7 @@ public class Inquilinos_Controller implements Initializable {
   public void initialize(URL location, ResourceBundle resources) {
     String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
 
+    Uuid.setCellValueFactory(new PropertyValueFactory<Inquilino, Uuid>("Id"));
     Nombre.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Nombre"));
     Direccion.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Direccion"));
     Edad.setCellValueFactory(new PropertyValueFactory<Inquilino, Integer>("Edad"));
@@ -109,7 +110,7 @@ public class Inquilinos_Controller implements Initializable {
       controller.setInquilinoInfo(inquilino);
       controller.setPrevStage(stage);
 
-      stage.setTitle("Nuevo Inquilino");
+      stage.setTitle("Informacion de Inquilino");
 
       prevStage.close();
 

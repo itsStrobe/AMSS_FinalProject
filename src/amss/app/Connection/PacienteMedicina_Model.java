@@ -135,7 +135,7 @@ public class PacienteMedicina_Model extends Model {
   }
 
   private Collection<PacienteMedicina> getMedicinasOfPaciente(Vector<String> parameters, String where) {
-    String query = "SELECT * FROM MEDICINA_PACIENTE ";
+    String query = "SELECT * FROM MEDICINA_PACIENTE";
     if (where != null)
       query += " where " + where;
     query += ";";
