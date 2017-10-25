@@ -25,7 +25,7 @@
             </MenuBar>
             <HBox prefHeight="519.0" prefWidth="794.0">
                <children>
-                  <VBox prefHeight="519.0" prefWidth="208.0">
+                  <VBox prefHeight="512.0" prefWidth="270.0">
                      <children>
                         <ImageView fitHeight="195.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -33,31 +33,48 @@
                            </image>
                         </ImageView>
                         <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="2.0" />
-                        <Label text="Informacion General" />
-                        <Label fx:id="inqID" text="ID" />
-                        <Label fx:id="inqNombre" text="Nombre" />
-                        <Label fx:id="inqDireccion" text="Direccion" />
-                        <Label fx:id="inqEdad" text="Edad" />
-                        <Label fx:id="inqEstatus" text="Estatus" />
-                        <Label fx:id="inqCuarto" text="Cuarto" />
-                        <Button mnemonicParsing="false" onAction="#loadInfo" text="Load" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="105.0" prefWidth="24.0" />
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Informacion" />
+                                    <Label text="ID" />
+                                    <Label text="Nombre" />
+                                    <Label text="Direccion" />
+                                    <Label text="Edad" />
+                                    <Label text="Estatus" />
+                                    <Label text="Cuarto" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Datos" />
+                                    <Label fx:id="inqID" text="ID" />
+                                    <Label fx:id="inqNombre" text="Nombre" />
+                                    <Label fx:id="inqDireccion" text="Direccion" />
+                                    <Label fx:id="inqEdad" text="Edad" />
+                                    <Label fx:id="inqEstatus" text="Estatus" />
+                                    <Label fx:id="inqCuarto" text="Cuarto" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#loadInfo" prefHeight="38.0" prefWidth="232.0" text="Actualizar Informacion" />
                      </children>
                   </VBox>
                   <TabPane prefHeight="519.0" prefWidth="593.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="Pastillero">
+                      <Tab fx:id="pastMed" text="Pastillero">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
+                                    <TableView fx:id="pastTable" layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="559.0">
                                       <columns>
-                                        <TableColumn prefWidth="163.4298858642578" text="Medicina" />
-                                        <TableColumn minWidth="0.0" prefWidth="171.5269775390625" text="Horario" />
-                                          <TableColumn prefWidth="250.38726806640625">
-                                             <graphic>
-                                                <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" text="Agregar" textAlignment="CENTER" />
-                                             </graphic>
-                                          </TableColumn>
+                                        <TableColumn fx:id="pastNombre" prefWidth="163.4298858642578" text="Medicina" />
+                                        <TableColumn fx:id="pastManana" minWidth="0.0" prefWidth="90.0" text="Ma~ana" />
+                                          <TableColumn fx:id="pastTarde" minWidth="0.0" prefWidth="66.0" text="Tarde" />
+                                          <TableColumn fx:id="pastNoche" minWidth="0.0" prefWidth="76.0" text="Noche" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -68,10 +85,10 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
+                                    <TableView fx:id="medTable" layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="106.41929626464844" text="Nombre" />
-                                          <TableColumn minWidth="0.0" prefWidth="277.7420654296875" text="Cantidad" />
+                                          <TableColumn fx:id="medNombre" prefWidth="106.41929626464844" text="Nombre" />
+                                          <TableColumn fx:id="medCantidad" minWidth="0.0" prefWidth="277.7420654296875" text="Cantidad" />
                                           <TableColumn prefWidth="196.25799560546875">
                                              <graphic>
                                                 <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
@@ -87,10 +104,10 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
+                                    <TableView fx:id="famTable" layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="76.34140014648438" text="Nombre" />
-                                          <TableColumn prefWidth="76.68292236328125" text="Telefono" />
+                                          <TableColumn fx:id="famNombre" prefWidth="76.34140014648438" text="Nombre" />
+                                          <TableColumn fx:id="famTelefono" prefWidth="76.68292236328125" text="Telefono" />
                                           <TableColumn prefWidth="163.4298858642578">
                                              <graphic>
                                                 <Button mnemonicParsing="false" onAction="#agregarFamiliar" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
@@ -106,11 +123,12 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="486.0" prefWidth="592.0">
+                                    <TableView fx:id="recTable" layoutX="-1.0" layoutY="-1.0" onMouseClicked="#select_Receta" prefHeight="486.0" prefWidth="592.0">
                                        <columns>
-                                          <TableColumn prefWidth="175.06434631347656" text="Medicina" />
-                                          <TableColumn prefWidth="266.9357604980469" text="Fecha Inicio" />
-                                          <TableColumn minWidth="0.0" prefWidth="143.527099609375">
+                                          <TableColumn fx:id="recId" prefWidth="144.0" text="ID" />
+                                          <TableColumn fx:id="recFechaInicio" prefWidth="116.0" text="Fecha Inicio" />
+                                          <TableColumn fx:id="recDocNombre" prefWidth="116.0" text="Doctor" />
+                                          <TableColumn minWidth="0.0" prefWidth="99.0">
                                              <graphic>
                                                 <Button mnemonicParsing="false" onAction="#transition_RecetaForm" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
                                              </graphic>

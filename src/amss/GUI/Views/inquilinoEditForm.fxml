@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.InquilinoForm_Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="794.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="794.0" text="Editar Inquilino" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="29.0" prefWidth="7.0" />
+            <HBox prefHeight="311.0" prefWidth="794.0">
+               <children>
+                  <VBox prefHeight="218.0" prefWidth="143.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Nombre:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Direccion:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Edad:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Padecimientos:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Estatus" />
+                        <Separator layoutX="10.0" layoutY="165.0" opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label layoutX="10.0" layoutY="187.0" prefHeight="37.0" prefWidth="158.0" text="Cuarto" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="483.0" prefWidth="492.0">
+                     <children>
+                        <TextField fx:id="nombreField" prefHeight="36.0" prefWidth="498.0" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <TextField fx:id="direccionField" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="498.0" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <TextField fx:id="edadField" layoutX="10.0" layoutY="46.0" prefHeight="36.0" prefWidth="498.0" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <TextField layoutX="10.0" layoutY="82.0" prefHeight="36.0" prefWidth="498.0" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <TextField fx:id="estatusField" prefHeight="36.0" prefWidth="498.0" />
+                        <Separator layoutX="10.0" layoutY="162.0" opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <TextField fx:id="cuartoField" layoutX="10.0" layoutY="184.0" prefHeight="36.0" prefWidth="498.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="43.0" prefWidth="7.0" />
+            <HBox prefHeight="61.0" prefWidth="608.0">
+               <children>
+                  <Separator opacity="0.0" prefHeight="0.0" prefWidth="349.0" />
+                  <Button mnemonicParsing="false" onAction="#update_Inquilino" text="Actualizar" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>
