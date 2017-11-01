@@ -34,11 +34,11 @@ public final class Inquilino_Model extends Model {
       parameters.add(inquilino.getNombre());
       parameters.add(inquilino.getDireccion());
       parameters.add(SQLFormatter.sqlTime(inquilino.getFechaNacimiento()));
-      parameters.add(SQLFormatter.sqlInt(inquilino.getEdad()));
       parameters.add(SQLFormatter.sqlID(inquilino.getIdResponsable()));
       parameters.add(SQLFormatter.sqlChar(inquilino.getEstatus()));
       parameters.add(inquilino.getCuarto());
-      query = "INSERT INTO INQUILINOS (ID,NOMBRE,DIRECCION,FECHANACIMIENTO,EDAD,RESPONSABLE,ESTATUS,CUARTO) " +
+      parameters.add(inquilino.getPadecimientos());
+      query = "INSERT INTO INQUILINOS (ID,NOMBRE,DIRECCION,FECHANACIMIENTO,RESPONSABLE,ESTATUS,CUARTO,PADECIMIENTOS) " +
           "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?);";
 
       dbConnection.dbUpdate(parameters, query);
@@ -72,19 +72,19 @@ public final class Inquilino_Model extends Model {
       parameters.add(inquilino.getNombre());
       parameters.add(inquilino.getDireccion());
       parameters.add(SQLFormatter.sqlTime(inquilino.getFechaNacimiento()));
-      parameters.add(SQLFormatter.sqlInt(inquilino.getEdad()));
       parameters.add(SQLFormatter.sqlID(inquilino.getIdResponsable()));
       parameters.add(SQLFormatter.sqlChar(inquilino.getEstatus()));
       parameters.add(inquilino.getCuarto());
+      parameters.add(inquilino.getPadecimientos());
       parameters.add(SQLFormatter.sqlID(inquilino.getId()));
       query = "UPDATE INQUILINOS set" +
           " NOMBRE = ?," +
           " DIRECCION = ?," +
           " FECHANACIMIENTO = ?," +
-          " EDAD = ?," +
           " RESPONSABLE = ?," +
           " ESTATUS = ?," +
-          " CUARTO = ?" +
+          " CUARTO = ?," +
+          " PADECIMIENTOS = ?" +
           " where ID = ?" +
           ";";
 

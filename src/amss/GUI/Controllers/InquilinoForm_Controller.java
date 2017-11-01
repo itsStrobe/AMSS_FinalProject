@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.fxml.*;
@@ -28,11 +29,11 @@ public class InquilinoForm_Controller implements Initializable {
   @FXML
   private TextField direccionField;
   @FXML
-  private TextField edadField;
-  @FXML
   private TextField padecimientoField;
   @FXML
   private TextField cuartoField;
+  @FXML
+  private DatePicker fechaNacField;
 
   private Uuid.Generator uuidGenerator;
   private final Inquilino_Model inquilino_model = new Inquilino_Model();
@@ -41,7 +42,6 @@ public class InquilinoForm_Controller implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
     Uuid uuidBase = Uuid.NULL;
     try {
       uuidBase = Uuid.parse("101.0000000000");
@@ -57,6 +57,21 @@ public class InquilinoForm_Controller implements Initializable {
 
   public void setInquilino(Inquilino inquilino) {
     this.inquilino = inquilino;
+  }
+
+  public void add_Inquilino() throws Exception {
+    Uuid uuid = uuidGenerator.make();
+    String nombre = nombreField.getText();
+    String direccion = direccionField.getText();
+    Time fechaNac = Time.fromMs(Time.getDateInMs(fechaNacField.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))));
+    String cuarto = cuartoField.getText();
+    String padecimientos = padecimientoField.getText();
+
+    Inquilino newInquilino = new Inquilino(uuid, nombre, direccion, fechaNac, cuarto, padecimientos);
+
+    inquilino_model.add(newInquilino);
+
+    transition_Back();
   }
 
   public void transition_Back() throws Exception {
@@ -75,22 +90,5 @@ public class InquilinoForm_Controller implements Initializable {
     prevStage.close();
 
     stage.show();
-  }
-
-  public void add_Inquilino() throws Exception {
-    Uuid uuid = uuidGenerator.make();
-    String nombre = nombreField.getText();
-    String direccion = direccionField.getText();
-    int edad = Integer.parseInt(edadField.getText());
-    Time fechaN = Time.now();
-    String cuarto = cuartoField.getText();
-
-    Inquilino newInquilino = new Inquilino(uuid, nombre, direccion, edad, fechaN, cuarto);
-
-
-    inquilino_model.add(newInquilino);
-
-    transition_Back();
-
   }
 }

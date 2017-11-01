@@ -1,10 +1,7 @@
 package amss.GUI.Controllers;
 
 import amss.app.Connection.*;
-import amss.app.Elementos.Medicina;
-import amss.app.Elementos.PacienteMedicina;
-import amss.app.Elementos.Receta;
-import amss.app.Elementos.RecetaMedicina;
+import amss.app.Elementos.*;
 import amss.app.Individuos.Familiar;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.SQLFormatter;
@@ -42,6 +39,7 @@ public class Perfil_Controller implements Initializable {
   private PacienteMedicina_Model pacienteMedicina_model = new PacienteMedicina_Model();
   private RecetaMedicina_Model recetaMedicina_model = new RecetaMedicina_Model();
   private Receta_Model receta_model = new Receta_Model();
+  private Recomendaciones_Model recomendaciones_model = new Recomendaciones_Model();
 
   @FXML
   private Label inqID = new Label();
@@ -55,6 +53,12 @@ public class Perfil_Controller implements Initializable {
   private Label inqEstatus = new Label();
   @FXML
   private Label inqCuarto = new Label();
+  @FXML
+  private Label inqPadecimientos = new Label();
+  @FXML
+  private Label inqNomResponsable = new Label();
+  @FXML
+  private Label inqTelResponsable = new Label();
 
   @FXML
   private TableView<PastilleroView> pastTable = new TableView<>();
@@ -90,11 +94,19 @@ public class Perfil_Controller implements Initializable {
   @FXML
   private TableColumn<Receta, String> recDocNombre;
 
+  @FXML
+  private TableView<Recomendaciones> recoTable = new TableView<>();
+  @FXML
+  private TableColumn<Recomendaciones, Uuid> recoId;
+  @FXML
+  private TableColumn<Recomendaciones, String> recoTitulo;
+  @FXML
+  private TableColumn<Recomendaciones, Time> recoFecha;
+
   Stage prevStage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
 
   }
 
@@ -103,9 +115,31 @@ public class Perfil_Controller implements Initializable {
     this.inqID.setText(SQLFormatter.sqlID(inquilino.getId()));
     this.inqNombre.setText(inquilino.getNombre());
     this.inqDireccion.setText(inquilino.getDireccion());
-    this.inqEdad.setText(SQLFormatter.sqlInt(inquilino.getEdad()));
+    this.inqEdad.setText(SQLFormatter.sqlLong(Time.getDiferenceInYears(inquilino.getFechaNacimiento(), Time.now())));
     this.inqEstatus.setText(SQLFormatter.sqlChar(inquilino.getEstatus()));
     this.inqCuarto.setText(inquilino.getCuarto());
+    this.inqPadecimientos.setText(inquilino.getPadecimientos());
+
+    if(!inquilino.getIdResponsable().equals(Uuid.NULL)) {
+      this.inqNomResponsable.setText(familiar_model.getSingleFamiliarById(inquilino.getIdResponsable()).iterator().next().getNombre());
+      this.inqTelResponsable.setText(familiar_model.getSingleFamiliarById(inquilino.getIdResponsable()).iterator().next().getTelefono());
+    }
+    else {
+      this.inqNomResponsable.setText("NO HAY RESPONSABLE");
+      this.inqTelResponsable.setText("------------------");
+    }
+
+    switch (inquilino.getEstatus()) {
+      case 'a':
+        inqEstatus.setText("Activo");
+        break;
+      case 'i':
+        inqEstatus.setText("Inactivo");
+        break;
+      case 'f':
+        inqEstatus.setText("Fallecido");
+        break;
+    }
   }
 
   private void setSelectedInquilino() {
@@ -181,6 +215,16 @@ public class Perfil_Controller implements Initializable {
     return recetaArrayList;
   }
 
+  private List<Recomendaciones> parseListRecomendaciones() {
+    List<Recomendaciones> recomendacionesArrayList = new ArrayList<>();
+
+    for(Recomendaciones recomendacion : recomendaciones_model.getAllRecomendacionesOfInquilino(selectedInquilino.getId())) {
+      recomendacionesArrayList.add(recomendacion);
+    }
+
+    return recomendacionesArrayList;
+  }
+
   public void setPrevStage(Stage stage) {
     this.prevStage = stage;
   }
@@ -216,6 +260,35 @@ public class Perfil_Controller implements Initializable {
 
     List<Receta> recetaList = parseListReceta();
     recTable.getItems().setAll(recetaList);
+
+    // Inicializa TABLA RECOMENDACIONES
+    recoId.setCellValueFactory(new PropertyValueFactory<>("Id"));
+    recoTitulo.setCellValueFactory(new PropertyValueFactory<>("Titulo"));
+    recoFecha.setCellValueFactory(new PropertyValueFactory<>("Fecha"));
+
+    List<Recomendaciones> recomendacionesList = parseListRecomendaciones();
+    recoTable.getItems().setAll(recomendacionesList);
+  }
+
+  public void update_Inquilino() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinoEditForm.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    InquilinoEditForm_Controller controller = (InquilinoEditForm_Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+    controller.setInquilinoInfo(selectedInquilino);
+    controller.setSelectedInquilino();
+    controller.loadInfo();
+
+    stage.setTitle("Editar Inquilino");
+
+    prevStage.close();
+
+    stage.show();
   }
 
   public void addMedicamento() throws Exception {
@@ -231,24 +304,6 @@ public class Perfil_Controller implements Initializable {
     controller.setPrevScreen("Perfil");
 
     stage.setTitle("Nuevo Medicamento");
-
-    prevStage.close();
-
-    stage.show();
-  }
-
-  public void transition_Back() throws Exception {
-    Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinos.fxml"));
-
-    Pane myPane = (Pane) myLoader.load();
-    Scene myScene = new Scene(myPane);
-    stage.setScene(myScene);
-
-    Inquilinos_Controller controller = (Inquilinos_Controller) myLoader.getController();
-    controller.setPrevStage(stage);
-
-    stage.setTitle("Inquilinos");
 
     prevStage.close();
 
@@ -291,7 +346,7 @@ public class Perfil_Controller implements Initializable {
       controller.loadInfo();
       controller.setPrevStage(stage);
 
-      stage.setTitle("Nuevo Inquilino");
+      stage.setTitle("Receta");
 
       prevStage.close();
 
@@ -312,6 +367,68 @@ public class Perfil_Controller implements Initializable {
     controller.setInquilinoInfo(selectedInquilino);
 
     stage.setTitle("Nueva Receta");
+
+    prevStage.close();
+
+    stage.show();
+  }
+
+  public void select_Recomendacion() throws Exception {
+    if (recoTable.getSelectionModel().getSelectedItem() != null) {
+      Recomendaciones recomendacion = recoTable.getSelectionModel().getSelectedItem();
+
+      Stage stage = new Stage(StageStyle.DECORATED);
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recomendacionView.fxml"));
+
+      Pane myPane = (Pane) myLoader.load();
+      Scene myScene = new Scene(myPane);
+      stage.setScene(myScene);
+
+      RecomendacionView_Controller controller = (RecomendacionView_Controller) myLoader.getController();
+      controller.setSelectedInquilino(selectedInquilino);
+      controller.setSelectedRecomendacion(recomendacion);
+      controller.loadInfo();
+      controller.setPrevStage(stage);
+
+      stage.setTitle("Nuevo Inquilino");
+
+      prevStage.close();
+
+      stage.show();
+    }
+  }
+
+  public void transition_RecomendacionForm() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recomendacionForm.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    RecomendacionForm_Controller controller = (RecomendacionForm_Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+    controller.setSelectedInquilino(selectedInquilino);
+
+    stage.setTitle("Nueva Recomendacion");
+
+    prevStage.close();
+
+    stage.show();
+  }
+
+  public void transition_Back() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinos.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    Inquilinos_Controller controller = (Inquilinos_Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+
+    stage.setTitle("Inquilinos");
 
     prevStage.close();
 

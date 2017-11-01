@@ -23,16 +23,6 @@ public class Recomendaciones_Model extends Model{
     add();
   }
 
-  String sql = "CREATE TABLE RECOMENDACIONES " +
-      "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
-      " TITULO           CHAR(50)                NOT NULL, " +
-      " CONTENIDO        TEXT                    NOT NULL, " +
-      " INQUILINO        VARCHAR(16)             NOT NULL, " +
-      " STAFF            VARCHAR(16)             NOT NULL, " +
-      " FECHA            BIGINT                  NOT NULL, " +
-      " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID), " +
-      " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
-
   @Override
   protected void add() {
     String query;
@@ -45,7 +35,7 @@ public class Recomendaciones_Model extends Model{
       parameters.add(SQLFormatter.sqlID(recomendaciones.getInquilinoId()));
       parameters.add(SQLFormatter.sqlID(recomendaciones.getStaffId()));
       parameters.add(SQLFormatter.sqlTime(recomendaciones.getFecha()));
-      query = "INSERT INTO STAFF (ID,TITULO,CONTENIDO,INQUILINO,STAFF,FECHA) " +
+      query = "INSERT INTO RECOMENDACIONES (ID,TITULO,CONTENIDO,INQUILINO,STAFF,FECHA) " +
           "VALUES ( ?, ?, ?, ?, ?, ?);";
 
       dbConnection.dbUpdate(parameters, query);
@@ -84,7 +74,7 @@ public class Recomendaciones_Model extends Model{
       parameters.add(SQLFormatter.sqlID(recomendaciones.getStaffId()));
       parameters.add(SQLFormatter.sqlTime(recomendaciones.getFecha()));
       parameters.add(SQLFormatter.sqlID(recomendaciones.getId()));
-      query = "UPDATE STAFF set" +
+      query = "UPDATE RECOMENDACIONES set" +
           " TITULO = ?," +
           " CONTENIDO = ?," +
           " INQUILINO = ?" +
@@ -150,7 +140,7 @@ public class Recomendaciones_Model extends Model{
   }
 
   private Collection<Recomendaciones> getRecomendaciones(Vector<String> parameters, String where) {
-    String query = "SELECT * FROM Staff";
+    String query = "SELECT * FROM RECOMENDACIONES";
     if (where != null)
       query += " where " + where;
     query += ";";

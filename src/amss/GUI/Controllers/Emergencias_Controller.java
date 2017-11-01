@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -69,8 +70,30 @@ public class Emergencias_Controller implements Initializable{
     this.prevStage = stage;
   }
 
-  public void select_Emergencia() {
-    System.out.println("Emergencia Selected");
+  public void select_Emergencia() throws Exception{
+    if (emergenciasTable.getSelectionModel().getSelectedItem() != null) {
+      EmergenciasView emergenciasView = emergenciasTable.getSelectionModel().getSelectedItem();
+
+      Emergencias emergencia = emergencias_model.getSingleEmergenciaById(emergenciasView.id).iterator().next();
+
+      Stage stage = new Stage(StageStyle.DECORATED);
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergenciaDetails.fxml"));
+
+      Pane myPane = (Pane) myLoader.load();
+      Scene myScene = new Scene(myPane);
+      stage.setScene(myScene);
+
+      EmergenciaDetails_Controller controller = (EmergenciaDetails_Controller) myLoader.getController();
+      controller.setSelectedEmergencia(emergencia);
+      controller.setPrevStage(stage);
+      controller.loadInfo();
+
+      stage.setTitle("Detalles de Emergencia");
+
+      prevStage.close();
+
+      stage.show();
+    }
   }
 
   public void transition_NuevaEmergencia() throws IOException{

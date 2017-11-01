@@ -2,9 +2,10 @@ package amss.GUI.Controllers;
 
 import amss.app.Connection.Emergencias_Model;
 import amss.app.Connection.Inquilino_Model;
+import amss.app.Connection.Recomendaciones_Model;
 import amss.app.Connection.Staff_Model;
 import amss.app.Elementos.Emergencias;
-import amss.app.Elementos.Medicina;
+import amss.app.Elementos.Recomendaciones;
 import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
 import amss.app.util.RandomUuidGenerator;
@@ -24,44 +25,36 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by strobe on 31/10/17.
+ * Created by strobe on 1/11/17.
  */
-public class EmergenciasForm_Controller implements Initializable {
+public class RecomendacionForm_Controller implements Initializable{
   @FXML
-  private TextField tituloField;
+  private TextField recoTituloField;
   @FXML
-  private TextField contenidoField;
+  private TextField recoContenidoField;
   @FXML
-  private ChoiceBox<String> inquilinoBox;
-  @FXML
-  private ChoiceBox<String> staffBox;
-  @FXML
-  private TextField hospitalField;
+  private ChoiceBox<String> recoStaffBox;
 
   private Uuid.Generator uuidGenerator;
   private final Inquilino_Model inquilino_model = new Inquilino_Model();
   private final Staff_Model staff_model = new Staff_Model();
-  private final Emergencias_Model emergencias_model = new Emergencias_Model();
+  private final Recomendaciones_Model recomendaciones_model = new Recomendaciones_Model();
 
-  private Emergencias emergencia;
+  private Inquilino selectedInquilino;
   Stage prevStage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     Uuid uuidBase = Uuid.NULL;
     try {
-      uuidBase = Uuid.parse("106.0000000000");
+      uuidBase = Uuid.parse("109.0000000000");
     } catch (IOException ex) {
     }
 
     this.uuidGenerator = new RandomUuidGenerator(uuidBase, System.currentTimeMillis());
 
-    for(Inquilino inquilino : inquilino_model.getAllInquilinos()) {
-      inquilinoBox.getItems().add(inquilino.getNombre());
-    }
-
     for(Staff staff : staff_model.getAllStaff()) {
-      staffBox.getItems().add(staff.getNombre());
+      recoStaffBox.getItems().add(staff.getNombre());
     }
   }
 
@@ -69,48 +62,45 @@ public class EmergenciasForm_Controller implements Initializable {
     this.prevStage = stage;
   }
 
-  public void setEmergencia(Emergencias emergencia) {
-    this.emergencia = emergencia;
+  public void setSelectedInquilino(Inquilino inquilino) {
+    this.selectedInquilino = inquilino;
   }
 
-  public void add_Emergencia() throws Exception {
+  public void add_Recomendacion() throws Exception {
     Uuid uuid = uuidGenerator.make();
-    String titulo = tituloField.getText();
-    String contenido = contenidoField.getText();
-    Uuid inquilino = Uuid.NULL;
+    String titulo = recoTituloField.getText();
+    String contenido = recoContenidoField.getText();
+    Uuid inquilino = selectedInquilino.getId();
     Uuid staff = Uuid.NULL;
-    String hospital = hospitalField.getText();
     Time fechaN = Time.now();
 
-    if(inquilinoBox.getValue() != null) {
-      inquilino = inquilino_model.getSingleInquilinoByName(inquilinoBox.getValue()).iterator().next().getId();
+    if(recoStaffBox.getItems() != null) {
+      staff = staff_model.getSingleStaffByName(recoStaffBox.getValue()).iterator().next().getId();
     }
 
-    if(staffBox.getItems() != null) {
-      staff = staff_model.getSingleStaffByName(staffBox.getValue()).iterator().next().getId();
-    }
-
-    Emergencias newEmergencia = new Emergencias(uuid, titulo, contenido, inquilino, staff, hospital, fechaN);
+    Recomendaciones newRecomendacion = new Recomendaciones(uuid, titulo, contenido, inquilino, staff, fechaN);
 
 
-    emergencias_model.add(newEmergencia);
+    recomendaciones_model.add(newRecomendacion);
 
     transition_Back();
-
   }
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergencias.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
 
-    Emergencias_Controller controller = (Emergencias_Controller) myLoader.getController();
+    Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
     controller.setPrevStage(stage);
+    controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(this.selectedInquilino);
+    controller.loadInfo();
 
-    stage.setTitle("Emergencias");
+    stage.setTitle("Informacion de Inquilino");
 
     prevStage.close();
 

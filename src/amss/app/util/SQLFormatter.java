@@ -37,6 +37,10 @@ public class SQLFormatter {
     return Integer.toString(number);
   }
 
+  public static String sqlLong(long number) {
+    return Long.toString(number);
+  }
+
   public static String sqlChar(char character) {
     return Character.toString(character);
   }

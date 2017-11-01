@@ -17,47 +17,47 @@ public final class Inquilino {
   private String strNombre;
   private String strDireccion;
   private Time tFechaNacimiento;
-  private int iEdad;
   // El familiar responsable se guarda como una ID que apunta hacia el tuplo en la
   // base de datos que contiene su info.
   private Uuid idResponsable;
   // FOTOGRAFIA
   private char cEstatus;
   private String strCuarto;
+  private String strPadecimientos;
   private Collection<Familiar> familiares;
 
-  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Time tFechaNacimiento, Uuid idResponsable, char cEstatus, String strCuarto) {
+  public Inquilino(Uuid id, String strNombre, String strDireccion, Time tFechaNacimiento, Uuid idResponsable, char cEstatus, String strCuarto, String strPadecimientos) {
     this.id = id;
     this.strNombre = strNombre;
     this.strDireccion = strDireccion;
-    this.iEdad = iEdad;
     this.tFechaNacimiento = tFechaNacimiento;
     this.idResponsable = idResponsable;
     this.cEstatus = cEstatus;
     this.strCuarto = strCuarto;
+    this.strPadecimientos = strPadecimientos;
   }
 
-  public Inquilino(Uuid id, String strNombre, String strDireccion, int iEdad, Time tFechaNacimiento, String strCuarto){
+  public Inquilino(Uuid id, String strNombre, String strDireccion, Time tFechaNacimiento, String strCuarto, String strPadecimientos){
 
     this.id = id;
     this.strNombre = strNombre;
     this.strDireccion = strDireccion;
-    this.iEdad = iEdad;
     this.tFechaNacimiento = tFechaNacimiento;
     this.idResponsable = Uuid.NULL;
     this.cEstatus = 'a';
     this.strCuarto = strCuarto;
+    this.strPadecimientos = strPadecimientos;
   }
 
   public Inquilino(Inquilino inquilino) {
     this.id = inquilino.id;
     this.strNombre = inquilino.strNombre;
     this.strDireccion = inquilino.strDireccion;
-    this.iEdad = inquilino.iEdad;
     this.tFechaNacimiento = inquilino.tFechaNacimiento;
     this.idResponsable = Uuid.NULL;
     this.cEstatus = inquilino.cEstatus;
     this.strCuarto = inquilino.strCuarto;
+    this.strPadecimientos = inquilino.strPadecimientos;
   }
 
   public void setResponsable(Familiar responsable) {
@@ -84,11 +84,6 @@ public final class Inquilino {
     return this.tFechaNacimiento;
   }
 
-  public int getEdad()
-  {
-    return this.iEdad;
-  }
-
   public Uuid getIdResponsable()
   {
     return this.idResponsable;
@@ -102,6 +97,10 @@ public final class Inquilino {
   public String getCuarto()
   {
     return this.strCuarto;
+  }
+
+  public String getPadecimientos() {
+    return this.strPadecimientos;
   }
 
   public Collection<Familiar> getFamiliares()

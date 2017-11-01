@@ -3,7 +3,11 @@ package amss.app.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -44,6 +48,16 @@ public final class Time implements Comparable<Time> {
     long diff;
 
     diff = TimeUnit.DAYS.convert(t1.inMs() - t2.inMs(), TimeUnit.MILLISECONDS);
+
+    return diff;
+  }
+
+  public static long getDiferenceInYears(Time t1, Time t2) {
+    long diff;
+    LocalDate lT1 = Instant.ofEpochMilli(t1.inMs()).atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate lT2 = Instant.ofEpochMilli(t2.inMs()).atZone(ZoneId.systemDefault()).toLocalDate();
+
+    diff = ChronoUnit.YEARS.between(lT1, lT2);
 
     return diff;
   }

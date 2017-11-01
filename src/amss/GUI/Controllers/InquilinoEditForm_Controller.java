@@ -12,12 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -31,17 +34,19 @@ public class InquilinoEditForm_Controller implements Initializable{
   private Label inqID = new Label();
 
   @FXML
-  private TextField nombreField;
+  private TextField edNombreField;
   @FXML
-  private TextField direccionField;
+  private TextField edDireccionField;
   @FXML
-  private TextField edadField;
+  private ChoiceBox<String> edEstatusField;
   @FXML
-  private ChoiceBox<String> estatusField;
+  private TextField edCuartoField;
   @FXML
-  private TextField cuartoField;
+  private TextField edPadecimientoField;
   @FXML
-  private ChoiceBox<String> familiaresField;
+  private DatePicker edFechaNacField;
+  @FXML
+  private ChoiceBox<String> edFamiliaresField;
 
   private final Inquilino_Model inquilino_model = new Inquilino_Model();
   private final Familiar_Model familiar_model = new Familiar_Model();
@@ -51,35 +56,37 @@ public class InquilinoEditForm_Controller implements Initializable{
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
-
-    estatusField.getItems().add("Activo");
-    estatusField.getItems().add("Inactivo");
-    estatusField.getItems().add("Fallecido");
+    edEstatusField.getItems().add("Activo");
+    edEstatusField.getItems().add("Inactivo");
+    edEstatusField.getItems().add("Fallecido");
   }
 
   public void setInquilinoInfo(Inquilino inquilino) {
     System.out.println(inquilino.getNombre());
     this.inqID.setText(SQLFormatter.sqlID(inquilino.getId()));
-    this.nombreField.setText(inquilino.getNombre());
-    this.direccionField.setText(inquilino.getDireccion());
-    this.edadField.setText(SQLFormatter.sqlInt(inquilino.getEdad()));
-    this.cuartoField.setText(inquilino.getCuarto());
+    this.edNombreField.setText(inquilino.getNombre());
+    this.edDireccionField.setText(inquilino.getDireccion());
+    this.edCuartoField.setText(inquilino.getCuarto());
+    this.edPadecimientoField.setText(inquilino.getPadecimientos());
+
+    if(!inquilino.getIdResponsable().equals(Uuid.NULL)) {
+      this.edFamiliaresField.setValue(familiar_model.getSingleFamiliarById(inquilino.getIdResponsable()).iterator().next().getNombre());
+    }
 
     switch (inquilino.getEstatus()) {
       case 'a':
-        estatusField.setValue("Activo");
+        edEstatusField.setValue("Activo");
         break;
       case 'i':
-        estatusField.setValue("Inactivo");
+        edEstatusField.setValue("Inactivo");
         break;
       case 'f':
-        estatusField.setValue("Fallecido");
+        edEstatusField.setValue("Fallecido");
         break;
     }
   }
 
-  private void setSelectedInquilino() {
+  public void setSelectedInquilino() {
     Collection<Inquilino> inquilinos = null;
     try {
       inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
@@ -97,37 +104,46 @@ public class InquilinoEditForm_Controller implements Initializable{
     Collection<Familiar> familiares = familiar_model.getFamiliaresOfInquilino(this.selectedInquilino);
 
     for(Familiar familiar : familiares) {
-      familiaresField.getItems().add(familiar.getNombre());
+      edFamiliaresField.getItems().add(familiar.getNombre());
     }
   }
 
   public void update_Inquilino() throws Exception {
     setSelectedInquilino();
 
-    String nombre = nombreField.getText();
-    String direccion = direccionField.getText();
-    int edad = Integer.parseInt(edadField.getText());
-    Time fechaN = Time.now();
-    String cuarto = cuartoField.getText();
+    String nombre = edNombreField.getText();
+    String direccion = edDireccionField.getText();
+    Time fechaN = selectedInquilino.getFechaNacimiento();
+    String cuarto = edCuartoField.getText();
     char estatus;
+    String padecimientos = edPadecimientoField.getText();
+    Uuid responsableId = Uuid.NULL;
 
-    if(estatusField.getValue().equals("Activo")) {
+    if(edEstatusField.getValue().equals("Activo")) {
       estatus = 'a';
     }
-    if(estatusField.getValue().equals("Inactivo")) {
+    if(edEstatusField.getValue().equals("Inactivo")) {
       estatus = 'i';
     }
-    if(estatusField.getValue().equals("Fallecido")) {
+    if(edEstatusField.getValue().equals("Fallecido")) {
       estatus = 'f';
     }
 
-    Inquilino newInquilino = new Inquilino(selectedInquilino.getId(), nombre, direccion, edad, fechaN, cuarto);
+    if(edFechaNacField.getValue() != null) {
+      fechaN = Time.fromMs(Time.getDateInMs(edFechaNacField.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))));
+    }
 
+    Inquilino newInquilino = new Inquilino(selectedInquilino.getId(), nombre, direccion, fechaN, cuarto, padecimientos);
+
+    if(edFamiliaresField.getValue() != null) {
+      newInquilino.setResponsable(familiar_model.getFamiliaresOfInquilinoByName(newInquilino, edFamiliaresField.getValue()).iterator().next());
+    }
+
+    this.selectedInquilino = newInquilino;
 
     inquilino_model.update(newInquilino);
 
     transition_Back();
-
   }
 
   public void transition_Back() throws Exception {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.RecomendacionView_Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="794.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="794.0" text="Detalles de Recomendacion" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="29.0" prefWidth="7.0" />
+            <HBox prefHeight="365.0" prefWidth="794.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="365.0" prefWidth="59.0" />
+                  <VBox prefHeight="218.0" prefWidth="143.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Titulo:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Contenido:" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="204.0" prefWidth="143.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Quien Reporta:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="359.0" prefWidth="492.0">
+                     <children>
+                        <Label fx:id="recoTituloLabel" prefHeight="32.0" prefWidth="489.0" text="TITULO" textAlignment="JUSTIFY" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="3.0" />
+                        <Label fx:id="recoContenidoLabel" prefHeight="205.0" prefWidth="492.0" text="CONTENIDO" textAlignment="JUSTIFY" />
+                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="41.0" prefWidth="6.0" />
+                        <Label fx:id="recoStaffLabel" prefHeight="38.0" prefWidth="492.0" text="NO SE REGISTRO NINGUN ACOMPA~ANTE" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

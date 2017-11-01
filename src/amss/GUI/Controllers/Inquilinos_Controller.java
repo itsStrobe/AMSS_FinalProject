@@ -2,6 +2,7 @@ package amss.GUI.Controllers;
 
 import amss.app.Connection.Inquilino_Model;
 import amss.app.Individuos.Inquilino;
+import amss.app.util.Time;
 import amss.app.util.Uuid;
 
 import javafx.fxml.Initializable;
@@ -33,7 +34,7 @@ public class Inquilinos_Controller implements Initializable {
   @FXML
   private TableColumn<Inquilino, String> Direccion;
   @FXML
-  private TableColumn<Inquilino, Integer> Edad;
+  private TableColumn<Inquilino, Time> FechaNac;
   @FXML
   private TableColumn<Inquilino, String> Cuarto;
 
@@ -43,12 +44,10 @@ public class Inquilinos_Controller implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
-
     Uuid.setCellValueFactory(new PropertyValueFactory<Inquilino, Uuid>("Id"));
     Nombre.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Nombre"));
     Direccion.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Direccion"));
-    Edad.setCellValueFactory(new PropertyValueFactory<Inquilino, Integer>("Edad"));
+    FechaNac.setCellValueFactory(new PropertyValueFactory<Inquilino, Time>("FechaNacimiento"));
     Cuarto.setCellValueFactory(new PropertyValueFactory<Inquilino, String>("Cuarto"));
 
     List<Inquilino> inquilinos = parselist();

@@ -91,12 +91,12 @@ public final class DataBaseConnection {
         String inquilinoNombre = rs.getString("NOMBRE");
         String direccion = rs.getString("DIRECCION");
         Time fechaNacimiento = Time.fromMs(rs.getLong("FECHANACIMIENTO"));
-        int edad = rs.getInt("EDAD");
         Uuid responsableID = Uuid.parse(rs.getString("RESPONSABLE"));
         char estatus = rs.getString("ESTATUS").charAt(0);
+        String padecimientos = rs.getString("PADECIMIENTOS");
         String cuarto = rs.getString("CUARTO");
 
-        Inquilino inquilino = new Inquilino(inquilinoID, inquilinoNombre, direccion, edad, fechaNacimiento, responsableID, estatus, cuarto);
+        Inquilino inquilino = new Inquilino(inquilinoID, inquilinoNombre, direccion, fechaNacimiento, responsableID, estatus, cuarto, padecimientos);
         found.add(inquilino);
       }
 
@@ -479,10 +479,10 @@ public final class DataBaseConnection {
           " NOMBRE          CHAR(50)                NOT NULL, " +
           " DIRECCION       TEXT                    NOT NULL, " +
           " FECHANACIMIENTO BIGINT                  NOT NULL, " +
-          " EDAD            INTEGER                 NOT NULL, " +
           " RESPONSABLE     VARCHAR(16)             NOT NULL, " +
           " ESTATUS         CHAR(1)                 NOT NULL, " +
           " CUARTO          CHAR(10)                NOT NULL, " +
+          " PADECIMIENTOS   TEXT                            , " +
           " FOREIGN KEY(RESPONSABLE) REFERENCES FAMILIARES(ID))";
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
