@@ -126,6 +126,16 @@ public final class Inquilino_Model extends Model {
     return getInquilinos(parameters, query);
   }
 
+  public Collection<Inquilino> getSingleInquilinoByName(String inquilinoName) {
+    String query;
+    Vector<String> parameters = new Vector<>();
+
+    parameters.add(inquilinoName);
+    query = "NOMBRE = ?";
+
+    return getInquilinos(parameters, query);
+  }
+
   private Collection<Inquilino> getInquilinos(Vector<String> parameters, String where) {
     String query = "SELECT * FROM INQUILINOS";
     if (where != null)
@@ -133,9 +143,4 @@ public final class Inquilino_Model extends Model {
     query += ";";
     return dbConnection.getInquilinos(parameters, query);
   }
-
-  // Get:
-  // Las medicinas de un inquilino
-  // Recetas de un inquilino
-  // Familiares de uno
 }

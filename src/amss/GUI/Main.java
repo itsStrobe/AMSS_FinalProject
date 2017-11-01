@@ -1,5 +1,9 @@
 package amss.GUI;
 
+import amss.app.Connection.*;
+import amss.app.Elementos.PacienteMedicina;
+import amss.app.Elementos.Receta;
+import amss.app.Elementos.RecetaMedicina;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
@@ -13,6 +17,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
+import java.util.HashMap;
+
 /**
  * Created by Jose Zavala y German on 10/15/17.
  */
@@ -20,8 +26,6 @@ import javafx.event.ActionEvent;
 public class Main extends Application {
 
   static Stage stage;
-
-  public Inquilino selectedInquilino = new Inquilino(Uuid.NULL, "German", "pos", 24, Time.now(), "3243");
 
   @Override
   public void start(Stage primaryStage) throws Exception {
@@ -38,10 +42,6 @@ public class Main extends Application {
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
     stage.show();
-  }
-
-  public void MoveToInquilinos(ActionEvent e) {
-
   }
 
   public static void changeScene(String sceneName) throws Exception {

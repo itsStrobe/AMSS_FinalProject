@@ -124,6 +124,17 @@ public class Familiar_Model extends Model{
     return getFamiliares(parameters, query);
   }
 
+  public Collection<Familiar> getFamiliaresOfInquilinoByName(Inquilino inquilino, String name) {
+    String query;
+    Vector<String> parameters = new Vector<>();
+
+    parameters.add(SQLFormatter.sqlID(inquilino.getId()));
+    parameters.add(name);
+    query = "INQUILINOID = ? AND NOMBRE = ?";
+
+    return getFamiliares(parameters, query);
+  }
+
   private Collection<Familiar> getFamiliares(Vector<String> parameters, String where) {
     String query = "SELECT * FROM FAMILIARES";
     if (where != null)

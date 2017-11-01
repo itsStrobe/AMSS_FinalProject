@@ -118,10 +118,12 @@ public class Perfil_Controller implements Initializable {
     System.out.println("This Inquilino: " + selectedInquilino.getNombre());
   }
 
-  private List<Familiar> parseListFamiliares() {
-    setSelectedInquilino();
+  public void setSelectedInquilino(Inquilino inquilino) {
+    selectedInquilino = inquilino;
+    System.out.println("This Inquilino: " + selectedInquilino.getNombre());
+  }
 
-    List<Familiar> familiares = new ArrayList<>();
+  private List<Familiar> parseListFamiliares() {List<Familiar> familiares = new ArrayList<>();
 
     for(Familiar familiar : familiar_model.getFamiliaresOfInquilino(selectedInquilino)) {
       familiares.add(familiar);
@@ -131,8 +133,6 @@ public class Perfil_Controller implements Initializable {
   }
 
   private List<MedicinaView> parseListMedicinaView() {
-    setSelectedInquilino();
-
     List<MedicinaView> medicinaViewList = new ArrayList<>();
 
     for(PacienteMedicina pacienteMedicina : pacienteMedicina_model.getAllMedicinasOfPaciente(selectedInquilino)) {
@@ -145,8 +145,6 @@ public class Perfil_Controller implements Initializable {
   }
 
   private List<PastilleroView> parseListPastilleroView() {
-    setSelectedInquilino();
-
     List<PastilleroView> pastilleroViewList = new ArrayList<>();
 
     for(PacienteMedicina pacienteMedicina : pacienteMedicina_model.getAllMedicinasOfPaciente(selectedInquilino.getId())) {
@@ -174,8 +172,6 @@ public class Perfil_Controller implements Initializable {
   }
 
   private List<Receta> parseListReceta() {
-    setSelectedInquilino();
-
     List<Receta> recetaArrayList = new ArrayList<>();
 
     for(Receta receta : receta_model.getAllRecetasOfPaciente(selectedInquilino.getId())) {
@@ -190,8 +186,6 @@ public class Perfil_Controller implements Initializable {
   }
 
   public void loadInfo() {
-    setSelectedInquilino();
-
     // Inicializa TABLA PASTILLERO
     pastNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
     pastManana.setCellValueFactory(new PropertyValueFactory<>("Manana"));
@@ -232,8 +226,6 @@ public class Perfil_Controller implements Initializable {
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
 
-    setSelectedInquilino();
-
     medicamentoForm_Controller controller = (medicamentoForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
     controller.setPrevScreen("Perfil");
@@ -271,8 +263,6 @@ public class Perfil_Controller implements Initializable {
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
 
-    setSelectedInquilino();
-
     FamiliarForm_Controller controller = (FamiliarForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
     controller.setInquilinoInfo(this.selectedInquilino);
@@ -298,6 +288,7 @@ public class Perfil_Controller implements Initializable {
       RecetaView_Controller controller = (RecetaView_Controller) myLoader.<RecetaView_Controller>getController();
       controller.setInquilinoInfo(selectedInquilino);
       controller.setRecetaInfo(receta);
+      controller.loadInfo();
       controller.setPrevStage(stage);
 
       stage.setTitle("Nuevo Inquilino");
@@ -315,8 +306,6 @@ public class Perfil_Controller implements Initializable {
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
-
-    setSelectedInquilino();
 
     RecetaForm_Controller controller = (RecetaForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);

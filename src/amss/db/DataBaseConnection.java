@@ -273,6 +273,140 @@ public final class DataBaseConnection {
     return found;
   }
 
+  public Collection<Staff> getStaff(Vector<String> parameters, String str) {
+
+    final Collection<Staff> found = new ArrayList<>();
+    int iParCounter = 1;
+
+    open();
+    try {
+
+      PreparedStatement stmt = c.prepareStatement(str);
+
+      for(String parameter : parameters) {
+        stmt.setString(iParCounter, parameter);
+        iParCounter++;
+      }
+
+      ResultSet rs = stmt.executeQuery();
+
+      while (rs.next()) {
+        Uuid staffID = Uuid.parse(rs.getString("ID"));
+        String staffNombre = rs.getString("NOMBRE");
+        String staffTelefono = rs.getString("TELEFONO");
+        String staffTurno = rs.getString("TURNO");
+        String staffPosicion = rs.getString("POSICION");
+        Time fechaNacimiento = Time.fromMs(rs.getLong("FECHANACIMIENTO"));
+
+        Staff staff = new Staff(staffID, staffNombre, staffTelefono, staffTurno, staffPosicion, fechaNacimiento);
+        found.add(staff);
+      }
+
+      rs.close();
+      stmt.close();
+
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+
+    close();
+    return found;
+  }
+
+  public Collection<Emergencias> getEmergencias(Vector<String> parameters, String str) {
+
+    final Collection<Emergencias> found = new ArrayList<>();
+    int iParCounter = 1;
+
+    open();
+    try {
+
+      PreparedStatement stmt = c.prepareStatement(str);
+
+      for(String parameter : parameters) {
+        stmt.setString(iParCounter, parameter);
+        iParCounter++;
+      }
+
+      ResultSet rs = stmt.executeQuery();
+
+      while (rs.next()) {
+        Uuid emergenciaID = Uuid.parse(rs.getString("ID"));
+        String emergenciaTitulo = rs.getString("TITULO");
+        String emergenciaContenido = rs.getString("CONTENIDO");
+        Uuid emergenciaInquilino = Uuid.parse(rs.getString("INQUILINO"));
+        Uuid emergenciaStaff = Uuid.parse(rs.getString("STAFF"));
+        String emergenciaHospital = rs.getString("HOSPITAL");
+        Time fecha = Time.fromMs(rs.getLong("FECHA"));
+
+        Emergencias emergencia = new Emergencias(emergenciaID, emergenciaTitulo, emergenciaContenido, emergenciaInquilino, emergenciaStaff, emergenciaHospital, fecha);
+        found.add(emergencia);
+      }
+
+      rs.close();
+      stmt.close();
+
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+
+    close();
+    return found;
+  }
+
+  String sql = "CREATE TABLE RECOMENDACIONES " +
+      "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+      " TITULO           CHAR(50)                NOT NULL, " +
+      " CONTENIDO        TEXT                    NOT NULL, " +
+      " INQUILINO        VARCHAR(16)             NOT NULL, " +
+      " STAFF            VARCHAR(16)             NOT NULL, " +
+      " FECHA            BIGINT                  NOT NULL, " +
+      " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID), " +
+      " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
+
+  public Collection<Recomendaciones> getRecomendaciones(Vector<String> parameters, String str) {
+
+    final Collection<Recomendaciones> found = new ArrayList<>();
+    int iParCounter = 1;
+
+    open();
+    try {
+
+      PreparedStatement stmt = c.prepareStatement(str);
+
+      for(String parameter : parameters) {
+        stmt.setString(iParCounter, parameter);
+        iParCounter++;
+      }
+
+      ResultSet rs = stmt.executeQuery();
+
+      while (rs.next()) {
+        Uuid recomendacionId = Uuid.parse(rs.getString("ID"));
+        String recomendacionTitulo = rs.getString("TITULO");
+        String recomendacionContenido = rs.getString("CONTENIDO");
+        Uuid recomendacionesInquilino = Uuid.parse(rs.getString("INQUILINO"));
+        Uuid recomendacionesStaff = Uuid.parse(rs.getString("STAFF"));
+        Time fecha = Time.fromMs(rs.getLong("FECHA"));
+
+        Recomendaciones recomendacion = new Recomendaciones(recomendacionId, recomendacionTitulo, recomendacionContenido, recomendacionesInquilino, recomendacionesStaff, fecha);
+        found.add(recomendacion);
+      }
+
+      rs.close();
+      stmt.close();
+
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+
+    close();
+    return found;
+  }
+
   // Recupera las medicinas del paciente en base a una query de la union de las tablas de MEDICINA_PACIENTE
   // y MEDICINA
   public Collection<PacienteMedicina> getMedicinasOfPaciente(Vector<String> parameters, String str) {
@@ -420,31 +554,68 @@ public final class DataBaseConnection {
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
-      c.commit();
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
     System.out.println("Table <MEDICINA_PACIENTE> created successfully");
 
-    /*
     try {
-      String sql = "CREATE TABLE INQUILINO_FAMILIAR " +
-          "(ID                VARCHAR(16) PRIMARY KEY NOT NULL, " +
-          " INQUILINOID       VARCHAR(16)             NOT NULL, " +
-          " FAMILIARID        VARCHAR(16)             NOT NULL, " +
-          " FOREIGN KEY(INQUILINOID)       REFERENCES INQUILINOS(ID), " +
-          " FOREIGN KEY(FAMILIARID)        REFERENCES FAMILIARES(ID))";
+      String sql = "CREATE TABLE STAFF " +
+          "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " NOMBRE           CHAR(50)                NOT NULL, " +
+          " TELEFONO         CHAR(14)                NOT NULL, " +
+          " TURNO            CHAR(50)                NOT NULL, " +
+          " POSICION         CHAR(50)                NOT NULL, " +
+          " FECHANACIMIENTO  BIGINT                  NOT NULL)";
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
-      // c.commit();
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
-    System.out.println("Table <INQUILINO_FAMILIAR> created successfully");
-    */
+    System.out.println("Table <STAFF> created successfully");
+
+    try {
+      String sql = "CREATE TABLE EMERGENCIAS " +
+          "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " TITULO           CHAR(50)                NOT NULL, " +
+          " CONTENIDO        TEXT                    NOT NULL, " +
+          " INQUILINO        VARCHAR(16)             NOT NULL, " +
+          " STAFF            VARCHAR(16)             NOT NULL, " +
+          " HOSPITAL         CHAR(50)                NOT NULL, " +
+          " FECHA            BIGINT                  NOT NULL, " +
+          " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID), " +
+          " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
+      stmt = c.prepareStatement(sql);
+      stmt.executeUpdate();
+      stmt.close();
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+    System.out.println("Table <EMERGENCIAS> created successfully");
+
+    try {
+      String sql = "CREATE TABLE RECOMENDACIONES " +
+          "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " TITULO           CHAR(50)                NOT NULL, " +
+          " CONTENIDO        TEXT                    NOT NULL, " +
+          " INQUILINO        VARCHAR(16)             NOT NULL, " +
+          " STAFF            VARCHAR(16)             NOT NULL, " +
+          " FECHA            BIGINT                  NOT NULL, " +
+          " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID), " +
+          " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
+      stmt = c.prepareStatement(sql);
+      stmt.executeUpdate();
+      stmt.close();
+      c.commit();
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+    System.out.println("Table <RECOMENDACIONES> created successfully");
 
     close();
   }
@@ -484,12 +655,20 @@ public final class DataBaseConnection {
       stmt.executeUpdate(sql);
       stmt.close();
 
-      /*
       stmt = c.createStatement();
-      sql = "DROP TABLE INQUILINO_FAMILIAR";
+      sql = "DROP TABLE STAFF";
       stmt.executeUpdate(sql);
       stmt.close();
-      */
+
+      stmt = c.createStatement();
+      sql = "DROP TABLE EMERGENCIAS";
+      stmt.executeUpdate(sql);
+      stmt.close();
+
+      stmt = c.createStatement();
+      sql = "DROP TABLE RECOMENDACIONES";
+      stmt.executeUpdate(sql);
+      stmt.close();
 
       c.commit();
     } catch (Exception e) {

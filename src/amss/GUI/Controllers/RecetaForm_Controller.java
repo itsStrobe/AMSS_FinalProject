@@ -97,22 +97,6 @@ public class RecetaForm_Controller implements Initializable {
     System.out.println("This Inquilino: " + selectedInquilino.getNombre());
   }
 
-  private long getDateInMs() {
-    String date = fechaSelect.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
-
-    DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-    Date startDate = new Date();
-    try {
-      startDate = df.parse(date);
-      String newDateString = df.format(startDate);
-      System.out.println(newDateString);
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-
-    return startDate.getTime();
-  }
-
   public void setPrevStage(Stage stage) {
     this.prevStage = stage;
   }
@@ -175,7 +159,7 @@ public class RecetaForm_Controller implements Initializable {
     dosisMa = Integer.parseInt(medMa.getText());
     dosisTa = Integer.parseInt(medTa.getText());
     dosisNo = Integer.parseInt(medNo.getText());
-    tiempoFin = Time.fromMs(getDateInMs());
+    tiempoFin = Time.fromMs(Time.getDateInMs(fechaSelect.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))));
 
     recetaMedicina = new RecetaMedicina(pacienteMedicina, receta, dosisMa, dosisTa, dosisNo, tiempoFin);
 
@@ -196,7 +180,9 @@ public class RecetaForm_Controller implements Initializable {
 
     Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
     controller.setPrevStage(stage);
-    controller.setInquilinoInfo(selectedInquilino);
+    controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(this.selectedInquilino);
+    controller.loadInfo();
 
     stage.setTitle("Inquilino");
 

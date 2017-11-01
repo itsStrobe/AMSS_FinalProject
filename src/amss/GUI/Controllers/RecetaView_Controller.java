@@ -80,7 +80,7 @@ public class RecetaView_Controller implements Initializable {
     return recetaMedicinas;
   }
 
-  public void LoadInfo() {
+  public void loadInfo() {
     setSelectedInquilino();
 
     // Inicializa TABLA PASTILLERO
@@ -145,6 +145,7 @@ public class RecetaView_Controller implements Initializable {
     Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
     controller.setPrevStage(stage);
     controller.setInquilinoInfo(this.selectedInquilino);
+    controller.loadInfo();
 
     stage.setTitle("Inquilino");
 

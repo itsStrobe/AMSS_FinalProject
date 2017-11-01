@@ -87,6 +87,8 @@ public class FamiliarForm_Controller implements Initializable{
     Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
     controller.setPrevStage(stage);
     controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(this.selectedInquilino);
+    controller.loadInfo();
 
     stage.setTitle("Inquilino");
 

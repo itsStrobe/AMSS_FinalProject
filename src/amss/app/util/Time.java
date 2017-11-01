@@ -1,7 +1,11 @@
 package amss.app.util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by strobe on 15/10/17.
@@ -36,4 +40,24 @@ public final class Time implements Comparable<Time> {
 
   public static Time now() { return Time.fromMs(System.currentTimeMillis()); }
 
+  public static long getDiferenceInDays(Time t1, Time t2) {
+    long diff;
+
+    diff = TimeUnit.DAYS.convert(t1.inMs() - t2.inMs(), TimeUnit.MILLISECONDS);
+
+    return diff;
+  }
+
+  public static long getDateInMs(String date) {DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+    Date startDate = new Date();
+    try {
+      startDate = df.parse(date);
+      String newDateString = df.format(startDate);
+      System.out.println(newDateString);
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+
+    return startDate.getTime();
+  }
 }

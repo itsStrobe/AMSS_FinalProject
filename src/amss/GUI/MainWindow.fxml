@@ -47,6 +47,7 @@
                      <children>
                         <Button fx:id="btnInquilinos" mnemonicParsing="false" onAction="#goToInquilinos" prefHeight="51.0" prefWidth="269.0" text="Inquilino" />
                         <Button fx:id="btnStaff" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToStaff" prefHeight="51.0" prefWidth="269.0" text="Staff" />
+                        <Button fx:id="btnStaff1" mnemonicParsing="false" onAction="#goToEmergencias" prefHeight="51.0" prefWidth="269.0" text="Emergencias" />
                      </children>
                   </VBox>
                </children>

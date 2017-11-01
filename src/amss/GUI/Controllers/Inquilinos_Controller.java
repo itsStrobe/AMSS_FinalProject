@@ -55,24 +55,6 @@ public class Inquilinos_Controller implements Initializable {
     inquilinosTable.getItems().setAll(inquilinos);
   }
 
-  public void transition_Back() throws Exception {
-    Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../MainWindow.fxml"));
-
-    Pane myPane = (Pane) myLoader.load();
-    Scene myScene = new Scene(myPane);
-    stage.setScene(myScene);
-
-    Controller controller = (Controller) myLoader.getController();
-    controller.setPrevStage(stage);
-
-    stage.setTitle("Casa de Retiro Luis Elizondo");
-
-    prevStage.close();
-
-    stage.show();
-  }
-
   public void transition_NuevoInquilino() throws Exception {
     Stage stage = new Stage();
     FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinoForm.fxml"));
@@ -108,7 +90,9 @@ public class Inquilinos_Controller implements Initializable {
 
       Perfil_Controller controller = (Perfil_Controller) myLoader.<Perfil_Controller>getController();
       controller.setInquilinoInfo(inquilino);
+      controller.setSelectedInquilino(inquilino);
       controller.setPrevStage(stage);
+      controller.loadInfo();
 
       stage.setTitle("Informacion de Inquilino");
 
@@ -127,5 +111,23 @@ public class Inquilinos_Controller implements Initializable {
     }
 
     return allInquilinos;
+  }
+
+  public void transition_Back() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../MainWindow.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    Controller controller = (Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+
+    stage.setTitle("Casa de Retiro Luis Elizondo");
+
+    prevStage.close();
+
+    stage.show();
   }
 }
