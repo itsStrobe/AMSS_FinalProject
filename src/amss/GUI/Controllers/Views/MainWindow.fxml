@@ -24,7 +24,7 @@
                            </menus>
                         </MenuBar>
                         <Separator orientation="VERTICAL" />
-                        <Text opacity="0.32" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonos:    911 (Emergencias)         1240(Muerte)" textAlignment="CENTER" wrappingWidth="788.7273559570312">
+                        <Text opacity="0.32" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergencias: 911 | Bomberos: (81) 8342-0053 | Cruz Roja: (81) 1233-0600 | Cruz Verde: (81) 8371-5050" textAlignment="CENTER" wrappingWidth="788.7273559570312">
                            <font>
                               <Font name="Apple Braille" size="13.0" />
                            </font>
@@ -37,17 +37,28 @@
             <HBox prefHeight="12.0" prefWidth="793.0">
                <children>
                   <Label prefHeight="27.0" prefWidth="489.0" text="Eventualidades" />
-                  <Button mnemonicParsing="false" prefHeight="6.0" prefWidth="38.0" text="+" />
+                  <Button mnemonicParsing="false" onAction="#transition_NuevaEventualidad" prefHeight="6.0" prefWidth="38.0" text="+" />
                </children>
             </HBox>
             <HBox>
                <children>
-                  <TreeView prefHeight="457.0" prefWidth="527.0" />
+                  <TableView fx:id="eventualidadesTable" onMouseClicked="#select_Eventualidad" prefHeight="479.0" prefWidth="794.0">
+                     <columns>
+                        <TableColumn fx:id="Uuid" prefWidth="124.0" text="Id" />
+                        <TableColumn fx:id="Titulo" prefWidth="143.0" text="Titulo" />
+                        <TableColumn fx:id="Staff" prefWidth="158.0" text="Staff" />
+                        <TableColumn fx:id="Fecha" prefWidth="234.0" text="Fecha" />
+                     </columns>
+                  </TableView>
                   <VBox prefHeight="450.0" prefWidth="267.0">
                      <children>
                         <Button fx:id="btnInquilinos" mnemonicParsing="false" onAction="#goToInquilinos" prefHeight="51.0" prefWidth="269.0" text="Inquilino" />
                         <Button fx:id="btnStaff" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToStaff" prefHeight="51.0" prefWidth="269.0" text="Staff" />
                         <Button fx:id="btnStaff1" mnemonicParsing="false" onAction="#goToEmergencias" prefHeight="51.0" prefWidth="269.0" text="Emergencias" />
+                        <Separator prefHeight="66.0" prefWidth="133.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="133.0" text="Seleccionar Fecha" textAlignment="CENTER" />
+                        <DatePicker fx:id="fechaSelect" />
+                        <Button mnemonicParsing="false" onAction="#goToMedicinasFaltantes" prefHeight="51.0" prefWidth="147.0" text="Ver Medicinas" />
                      </children>
                   </VBox>
                </children>

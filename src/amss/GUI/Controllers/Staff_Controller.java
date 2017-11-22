@@ -1,8 +1,6 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
-import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
@@ -16,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,14 +42,12 @@ public class Staff_Controller implements Initializable {
   @FXML
   private TableColumn<Staff, Time> FechaNacimiento;
 
-  Stage prevStage;
+  private Stage prevStage;
 
   private Staff_Model staff_model = new Staff_Model();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
-
     Uuid.setCellValueFactory(new PropertyValueFactory<Staff, Uuid>("Id"));
     Nombre.setCellValueFactory(new PropertyValueFactory<Staff, String>("Nombre"));
     Telefono.setCellValueFactory(new PropertyValueFactory<Staff, String>("Telefono"));
@@ -66,7 +61,7 @@ public class Staff_Controller implements Initializable {
 
   public void transition_NuevoStaff() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/staffForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/staffForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -91,7 +86,7 @@ public class Staff_Controller implements Initializable {
       Staff staff = staffTable.getSelectionModel().getSelectedItem();
 
       Stage stage = new Stage(StageStyle.DECORATED);
-      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/staffEditForm.fxml"));
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/staffEditForm.fxml"));
 
       Pane myPane = (Pane) myLoader.load();
       Scene myScene = new Scene(myPane);
@@ -100,7 +95,7 @@ public class Staff_Controller implements Initializable {
       StaffEditForm_Controller controller = (StaffEditForm_Controller) myLoader.getController();
       System.out.println("Staff: " + staff.getNombre());
       controller.setStaffInfo(staff);
-      controller.setSelectedStaff();
+      controller.setSelectedStaff(staff);
       controller.setPrevStage(stage);
 
       stage.setTitle("Actualizar Informacion de Staff");
@@ -123,7 +118,7 @@ public class Staff_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../MainWindow.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/MainWindow.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

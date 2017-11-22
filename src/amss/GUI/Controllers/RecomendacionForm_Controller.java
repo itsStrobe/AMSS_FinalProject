@@ -1,10 +1,8 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Emergencias_Model;
 import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Recomendaciones_Model;
 import amss.app.Connection.Staff_Model;
-import amss.app.Elementos.Emergencias;
 import amss.app.Elementos.Recomendaciones;
 import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
@@ -25,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by strobe on 1/11/17.
+ * Created by Jose Zavala on 1/11/17.
  */
 public class RecomendacionForm_Controller implements Initializable{
   @FXML
@@ -67,6 +65,10 @@ public class RecomendacionForm_Controller implements Initializable{
   }
 
   public void add_Recomendacion() throws Exception {
+    if(recoTituloField.getText().isEmpty() || recoContenidoField.getText().isEmpty() || recoStaffBox.getValue().isEmpty()) {
+      return;
+    }
+
     Uuid uuid = uuidGenerator.make();
     String titulo = recoTituloField.getText();
     String contenido = recoContenidoField.getText();
@@ -88,7 +90,7 @@ public class RecomendacionForm_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

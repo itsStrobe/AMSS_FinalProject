@@ -1,9 +1,7 @@
 package amss.GUI.Controllers;
 
 import amss.app.Connection.Emergencias_Model;
-import amss.app.Connection.Inquilino_Model;
 import amss.app.Elementos.Emergencias;
-import amss.app.Individuos.Inquilino;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
 import javafx.fxml.FXML;
@@ -41,8 +39,7 @@ public class Emergencias_Controller implements Initializable{
 
   private Stage prevStage;
 
-  private Inquilino_Model inquilino_model = new Inquilino_Model();
-  private Emergencias_Model emergencias_model = new Emergencias_Model();
+  private final Emergencias_Model emergencias_model = new Emergencias_Model();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -56,6 +53,10 @@ public class Emergencias_Controller implements Initializable{
     emergenciasTable.getItems().setAll(emergenciasViewList);
   }
 
+  public void setPrevStage(Stage stage) {
+    this.prevStage = stage;
+  }
+
   private List<EmergenciasView> parselist() {
     List<EmergenciasView> allEmergencias = new ArrayList<>();
     Collection<Emergencias> emergencias = emergencias_model.getAllEmergencias();
@@ -66,18 +67,14 @@ public class Emergencias_Controller implements Initializable{
     return allEmergencias;
   }
 
-  public void setPrevStage(Stage stage) {
-    this.prevStage = stage;
-  }
-
   public void select_Emergencia() throws Exception{
     if (emergenciasTable.getSelectionModel().getSelectedItem() != null) {
       EmergenciasView emergenciasView = emergenciasTable.getSelectionModel().getSelectedItem();
 
-      Emergencias emergencia = emergencias_model.getSingleEmergenciaById(emergenciasView.id).iterator().next();
+      Emergencias emergencia = emergencias_model.getSingleEmergenciaById(emergenciasView.getId()).iterator().next();
 
       Stage stage = new Stage(StageStyle.DECORATED);
-      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergenciaDetails.fxml"));
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/emergenciaDetails.fxml"));
 
       Pane myPane = (Pane) myLoader.load();
       Scene myScene = new Scene(myPane);
@@ -98,7 +95,7 @@ public class Emergencias_Controller implements Initializable{
 
   public void transition_NuevaEmergencia() throws IOException{
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergenciasForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/emergenciasForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -116,7 +113,7 @@ public class Emergencias_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../MainWindow.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/MainWindow.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

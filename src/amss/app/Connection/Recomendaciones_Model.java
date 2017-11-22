@@ -1,7 +1,6 @@
 package amss.app.Connection;
 
 import amss.app.Common.Model;
-import amss.app.Elementos.Emergencias;
 import amss.app.Elementos.Recomendaciones;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;

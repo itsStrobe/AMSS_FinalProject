@@ -14,4 +14,23 @@ public abstract class Model {
   protected abstract void add();
 
   protected abstract void update();
+
+  public static void createDatabase() {
+    DataBaseConnection connection = new DataBaseConnection();
+    connection.createTables();
+    System.out.println("Finished Creating Database Successfully!!!");
+  }
+
+  public static void deleteDatabase() {
+    DataBaseConnection connection = new DataBaseConnection();
+    connection.dropTables();
+    System.out.println("Finished Deleting Database Successfully!!!");
+  }
+
+  public static void resetDatabase() {
+    DataBaseConnection connection = new DataBaseConnection();
+    connection.dropTables();
+    connection.createTables();
+    System.out.println("Finished Resetting Database Successfully!!!");
+  }
 }

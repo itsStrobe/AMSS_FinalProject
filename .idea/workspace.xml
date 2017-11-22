@@ -1,44 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AMSS_FinalProject:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ec0c1e73-4c1b-43e3-a6dc-0aa1df237aa1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciaDetails.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionForm.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionView.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Libraries/itext5-itextpdf-5.5.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EventualidadDetails_Controller.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EventualidadForm_Controller.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EventualidadView.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/MedicinasFaltantes_Controller.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/addMedicamentoForm_Controller.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/app/Connection/Depositos_Model.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/app/Connection/Eventualidades_Model.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/app/Elementos/Depositos.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/app/Elementos/Eventualidades.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/app/util/PDF_Generator.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/itext5-itextpdf-5.5.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/AMSS_FinalProject_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itext5_itextpdf_5_5_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/module_amss_finalproject.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amss_finalproject.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/amss_finalproject.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/addMedicamentoForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/eventualidadDetails.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/eventualidadForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/medicinasFaltantes.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/recetaForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadDetails_Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadForm_Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinasFaltantes_Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/addMedicamentoForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/eventualidadDetails.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/eventualidadForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/medicinasFaltantes.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/recetaForm.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/addMedicamentoForm_Controller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Depositos_Model.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Eventualidades_Model.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/Depositos.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/Eventualidades.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/amss/app/util/PDF_Generator.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/recetaForm.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/amss/db/Database.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/recetaForm.fxml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/MainWindow.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/MainWindow.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/emergenciaDetails.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/emergenciaDetails.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/emergenciaForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/emergenciaForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/emergencias.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/emergencias.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/emergenciasForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/emergenciasForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/familiarForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/familiarForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoEditForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/inquilinoEditForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/inquilinoForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinos.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/inquilinos.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/medicamentoForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/medicamentoForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/perfil.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/perfil.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/recetaView.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/recetaView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/recomendacionForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/recomendacionForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/recomendacionView.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/recomendacionView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/staff.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/staff.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/staffEditForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/staffEditForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/staffForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/staffForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/MainWindow.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/MainWindow.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciaDetails.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/emergenciaDetails.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciaForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/emergenciaForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/emergencias.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/emergencias.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciasForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/emergenciasForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/familiarForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/familiarForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoEditForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Views/inquilinoEditForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/inquilinoForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/inquilinos.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/medicamentoForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/medicamentoForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/perfil.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/perfil.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/recetaView.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/recetaView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/recomendacionForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionView.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/recomendacionView.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/staff.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/staff.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/staffEditForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/staffEditForm.fxml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/staffForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Views/staffForm.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciaDetails_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciaDetails_Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciasForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciasForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciasView.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/EmergenciasView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Emergencias_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Emergencias_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/FamiliarForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/FamiliarForm_Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/InquilinoEditForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/InquilinoEditForm_Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/InquilinoForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/InquilinoForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Inquilinos_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Inquilinos_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/MedicinaView.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/MedicinaView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/PastilleroView.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/PastilleroView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Perfil_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Perfil_Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/app/Connection/Inquilino_Model.class" afterPath="$PROJECT_DIR$/bin/amss/app/Connection/Inquilino_Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecetaForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecetaForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecetaView_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecetaView_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecomendacionForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecomendacionForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecomendacionView_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/RecomendacionView_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/StaffEditForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/StaffEditForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/StaffForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/StaffForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Staff_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/Staff_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Controllers/medicamentoForm_Controller.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Controllers/medicamentoForm_Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Main.class" afterPath="$PROJECT_DIR$/bin/amss/GUI/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/app/Common/Model.class" afterPath="$PROJECT_DIR$/bin/amss/app/Common/Model.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/app/Connection/Recomendaciones_Model.class" afterPath="$PROJECT_DIR$/bin/amss/app/Connection/Recomendaciones_Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/app/Elementos/RecetaMedicina.class" afterPath="$PROJECT_DIR$/bin/amss/app/Elementos/RecetaMedicina.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/app/Individuos/Inquilino.class" afterPath="$PROJECT_DIR$/bin/amss/app/Individuos/Inquilino.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/db/DataBaseConnection.class" afterPath="$PROJECT_DIR$/bin/amss/db/DataBaseConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/db/Database.db" afterPath="$PROJECT_DIR$/bin/amss/db/Database.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/db/DropDatabase.class" afterPath="$PROJECT_DIR$/bin/amss/db/DropDatabase.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AMSS_FinalProject.iml" afterPath="$PROJECT_DIR$/.idea/AMSS_FinalProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoEditForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoEditForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoForm.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Views/inquilinoForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/amss/GUI/Views/perfil.fxml" afterPath="$PROJECT_DIR$/bin/amss/GUI/Views/perfil.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/Emergencias_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Emergencias_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/PastilleroView.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/PastilleroView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciasForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/emergenciasForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoEditForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoEditForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Views/perfil.fxml" afterPath="$PROJECT_DIR$/src/amss/GUI/Views/perfil.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Controllers/medicamentoForm_Controller.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Controllers/medicamentoForm_Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/GUI/Main.java" afterPath="$PROJECT_DIR$/src/amss/GUI/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Common/Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Common/Model.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Connection/Recomendaciones_Model.java" afterPath="$PROJECT_DIR$/src/amss/app/Connection/Recomendaciones_Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" afterPath="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" afterPath="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java" afterPath="$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/app/util/Time.java" afterPath="$PROJECT_DIR$/src/amss/app/util/Time.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" afterPath="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/amss/db/DropDatabase.java" afterPath="$PROJECT_DIR$/src/amss/db/DropDatabase.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,129 +157,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataBaseConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/db/DataBaseConnection.java">
+      <file leaf-file-name="RecomendacionForm_Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="480" column="65" lean-forward="false" selection-start-line="480" selection-start-column="65" selection-end-line="480" selection-end-column="65" />
-              <folding>
-                <marker date="1509549008357" expanded="true" signature="12998:13415" ph="CREATE TABLE... FAMILIARES" />
-                <marker date="1509549008357" expanded="true" signature="13732:14246" ph="CREATE TABLE... INQUILINOS" />
-                <marker date="1509549008357" expanded="true" signature="13732:14282" ph="CREATE TABLE... INQUILINOS" />
-                <marker date="1509549008357" expanded="true" signature="13732:14350" ph="CREATE TABLE... INQUILINOS" />
-                <marker date="1509549008357" expanded="true" signature="14667:14992" ph="CREATE TABLE... RECETAS" />
-                <marker date="1509549008357" expanded="true" signature="15306:15448" ph="CREATE TABLE... MEDICINAS" />
-                <marker date="1509549008357" expanded="true" signature="15765:16355" ph="CREATE TABLE... RECETA_MEDICINA" />
-                <marker date="1509549008357" expanded="true" signature="16677:17085" ph="CREATE TABLE... MEDICINA_PACIENTE" />
-                <marker date="1509549008357" expanded="true" signature="17409:17782" ph="CREATE TABLE... STAFF" />
-                <marker date="1509549008357" expanded="true" signature="17409:17787" ph="CREATE TABLE... STAFF" />
-                <marker date="1509549008357" expanded="true" signature="17409:17828" ph="CREATE TABLE... STAFF" />
-                <marker date="1509549008357" expanded="true" signature="17409:17829" ph="CREATE TABLE... STAFF" />
-                <marker date="1509549008357" expanded="true" signature="18141:18433" ph="CREATE TABLE... EMERGENCIAS" />
-                <marker date="1509549008357" expanded="true" signature="18141:18757" ph="CREATE TABLE... EMERGENCIAS" />
-                <marker date="1509549008357" expanded="true" signature="19075:19628" ph="CREATE TABLE... RECOMENDACIONES" />
-                <marker date="1509549008357" expanded="true" signature="20127:20148" ph="DROP TABLE F... " />
-                <marker date="1509549008357" expanded="true" signature="20250:20271" ph="DROP TABLE I... " />
-                <marker date="1509549008357" expanded="true" signature="20373:20391" ph="DROP TABLE R... " />
-                <marker date="1509549008357" expanded="true" signature="20493:20513" ph="DROP TABLE M... " />
-                <marker date="1509549008357" expanded="true" signature="20615:20641" ph="DROP TABLE R... " />
-                <marker date="1509549008357" expanded="true" signature="20743:20771" ph="DROP TABLE M... " />
-                <marker date="1509549008357" expanded="true" signature="20873:20889" ph="DROP TABLE S... " />
-                <marker date="1509549008357" expanded="true" signature="20991:21013" ph="DROP TABLE E... " />
-                <marker date="1509549008357" expanded="true" signature="21115:21141" ph="DROP TABLE R... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Perfil_Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="122" column="4" lean-forward="true" selection-start-line="122" selection-start-column="4" selection-end-line="125" selection-end-column="5" />
-              <folding>
-                <element signature="e#11797#11820#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InquilinoForm_Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state relative-caret-position="792">
+              <caret line="68" column="13" lean-forward="false" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inquilinos.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml">
+      <file leaf-file-name="EventualidadForm_Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadForm_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="25" />
+            <state relative-caret-position="1296">
+              <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Familiar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Familiar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Staff.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Staff.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1494">
+              <caret line="104" column="70" lean-forward="false" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDF_Generator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/amss/app/util/PDF_Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="58" column="40" lean-forward="false" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staffForm.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Views/staffForm.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inquilinoForm.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addMedicamentoForm.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Views/addMedicamentoForm.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Inquilinos_Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLFormatter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="40" column="15" lean-forward="false" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-              <folding>
-                <element signature="e#838#839#0" expanded="true" />
-                <element signature="e#879#880#0" expanded="true" />
-                <element signature="e#926#927#0" expanded="true" />
-                <element signature="e#964#965#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InquilinoEditForm_Controller.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-367">
-              <caret line="72" column="136" lean-forward="false" selection-start-line="72" selection-start-column="136" selection-end-line="72" selection-end-column="136" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Inquilino_Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,12 +258,9 @@
       <file leaf-file-name="Inquilino.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="84" column="3" lean-forward="false" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
-              <folding>
-                <element signature="e#2604#2605#0" expanded="true" />
-                <element signature="e#2642#2643#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="432">
+              <caret line="34" column="167" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="167" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -211,36 +278,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>parseListRecetaMedicina</find>
-      <find>Nuevo Inq</find>
-      <find>rece</find>
-      <find>load</find>
-      <find>perf</find>
-      <find>inquili</find>
-      <find>recetav</find>
-      <find>setSelectedInquilino</find>
-      <find>setSelectedInquilino();</find>
-      <find>trans</find>
-      <find>perfil</find>
-      <find>per</find>
-      <find>perfil.fxml</find>
-      <find>perfil.</find>
-      <find>selected</find>
-      <find>dbConnection</find>
-      <find>reco</find>
-      <find>dbConn</find>
-      <find>emergencias</find>
       <find>select_In</find>
       <find>medSelect</find>
       <find>tiempoFin</find>
       <find>getDateInMs</find>
       <find>INQUILINO_FAMILIAR</find>
       <find>select</find>
-      <find>emergencia</find>
       <find>e</find>
       <find>update_</find>
       <find>edEstatusField</find>
       <find>edad</find>
+      <find>addInquilinoEmergencias</find>
+      <find>pacienteMedicina</find>
+      <find>setSelected</find>
+      <find>loadIn</find>
+      <find>addM</find>
+      <find>medicina_model</find>
+      <find>eventualidad</find>
+      <find>stage</find>
+      <find>Time.now()</find>
+      <find>goTo</find>
+      <find>parselist</find>
+      <find>launch</find>
+      <find>calcularPastillas</find>
+      <find>inquilino_model</find>
+      <find>setFamiliares</find>
+      <find>emergencia</find>
+      <find>setInq</find>
+      <find>RecetaFo</find>
+      <find>selectedInquilino</find>
+      <find>goToIn</find>
     </findStrings>
     <replaceStrings>
       <replace>Recomendaciones</replace>
@@ -261,57 +328,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/medicamentoForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Elementos/PacienteMedicina.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/PastilleroView.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaRecetaView.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/Receta_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/recetaView.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/Familiar_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/medicamentoForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Main.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Individuos/Staff.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Elementos/Emergencias.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Elementos/Recomendaciones.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/emergencias.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/emergenciasForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/Staff_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/staffForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/staff.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/staffEditForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/Emergencias_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/emergenciaDetails.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Emergencias_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoEditForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/app/Connection/Recomendaciones_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionForm.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Views/recomendacionView.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java" />
         <option value="$PROJECT_DIR$/src/amss/app/util/Time.java" />
         <option value="$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java" />
         <option value="$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java" />
-        <option value="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" />
         <option value="$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java" />
-        <option value="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" />
-        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java" />
         <option value="$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/app/Elementos/Eventualidades.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Connection/Recomendaciones_Model.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Views/eventualidadForm.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/app/Connection/Eventualidades_Model.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Elementos/Receta.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Views/addMedicamentoForm.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/app/Elementos/PacienteMedicina.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/PacienteMedicinaView.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/MainWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadController.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Views/eventualidadDetails.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Views/medicinasFaltantes.fxml" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Common/Model.java" />
+        <option value="$PROJECT_DIR$/src/amss/db/DataBaseConnection.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Emergencias_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinasFaltantes_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/PastilleroView.java" />
         <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/db/DropDatabase.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadDetails_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadView.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/medicamentoForm_Controller.java" />
         <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/addMedicamentoForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Elementos/Depositos.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/Connection/Depositos_Model.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadForm_Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/amss/GUI/Main.java" />
+        <option value="$PROJECT_DIR$/src/amss/app/util/PDF_Generator.java" />
       </list>
     </option>
   </component>
@@ -452,6 +519,11 @@
             <id>Visibility issuesJava</id>
           </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -505,14 +577,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -533,36 +597,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AMSS_FinalProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AMSS_FinalProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -661,6 +695,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Elementos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -716,8 +754,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -728,16 +766,24 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Libraries/hamcrest-core-1.3.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Libraries/itext5-itextpdf-5.5.12.jar!/" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="amss_finalproject" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/amss/GUI/Controllers" />
+      <recent name="$PROJECT_DIR$/src/amss" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/amss/GUI/Controllers/Views" />
+      <recent name="$PROJECT_DIR$/src/amss/GUI/Controllers" />
+      <recent name="$PROJECT_DIR$/src/amss/GUI" />
       <recent name="$PROJECT_DIR$/src/amss/sample/Views" />
       <recent name="$PROJECT_DIR$/src/amss/sample/Controllers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/amss" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1232,11 +1278,24 @@
       <workItem from="1509459154235" duration="6360000" />
       <workItem from="1509469394141" duration="24071000" />
       <workItem from="1509544322826" duration="5185000" />
+      <workItem from="1510149042385" duration="5134000" />
+      <workItem from="1510163801614" duration="275000" />
+      <workItem from="1510164093798" duration="2155000" />
+      <workItem from="1510701489866" duration="16625000" />
+      <workItem from="1510757135912" duration="14419000" />
+      <workItem from="1511146550840" duration="2200000" />
+      <workItem from="1511201284328" duration="6768000" />
+      <workItem from="1511275178941" duration="4969000" />
+      <workItem from="1511294215416" duration="6794000" />
+      <workItem from="1511310957249" duration="6830000" />
+      <workItem from="1511320734237" duration="19280000" />
+      <workItem from="1511367003793" duration="3042000" />
+      <workItem from="1511374834856" duration="81000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171507000" />
+    <option name="totallyTimeSpent" value="260079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -1248,15 +1307,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5018868" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.5105121" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.49811321" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.48948786" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2425876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21563342" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1280,7 +1339,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1289,172 +1348,117 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Familiar.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/Medicina.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="32" column="3" lean-forward="false" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
-          <folding>
-            <element signature="e#681#682#0" expanded="false" />
-            <element signature="e#712#713#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/Emergencias.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/PacienteMedicina.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="27" column="2" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="53" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="126">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/Recomendaciones.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="43" column="3" lean-forward="false" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/emergencias.fxml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="8" column="258" lean-forward="false" selection-start-line="8" selection-start-column="258" selection-end-line="8" selection-end-column="258" />
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/RandomUuidGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/Uuid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/db/DataBaseConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
-            <marker date="1509471875288" expanded="true" signature="1772:2148" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Receta_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2196">
-          <caret line="129" column="34" lean-forward="false" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="120" column="38" lean-forward="false" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/MainWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="48" column="123" lean-forward="false" selection-start-line="48" selection-start-column="123" selection-end-line="48" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/emergenciasForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="262" lean-forward="false" selection-start-line="9" selection-start-column="262" selection-end-line="9" selection-end-column="262" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Staff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/staff.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="252" lean-forward="false" selection-start-line="12" selection-start-column="252" selection-end-line="12" selection-end-column="252" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/staffForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="256" lean-forward="false" selection-start-line="9" selection-start-column="256" selection-end-line="9" selection-end-column="256" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Staff_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="136" column="20" lean-forward="false" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Emergencias_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="145" column="45" lean-forward="false" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1511303146722" expanded="true" signature="14757:15174" ph="CREATE TABLE... FAMILIARES" />
+            <marker date="1511303146722" expanded="true" signature="15491:16005" ph="CREATE TABLE... INQUILINOS" />
+            <marker date="1511303146722" expanded="true" signature="15491:16041" ph="CREATE TABLE... INQUILINOS" />
+            <marker date="1511303146722" expanded="true" signature="15491:16109" ph="CREATE TABLE... INQUILINOS" />
+            <marker date="1511303146722" expanded="true" signature="16426:16751" ph="CREATE TABLE... RECETAS" />
+            <marker date="1511303146722" expanded="true" signature="17065:17207" ph="CREATE TABLE... MEDICINAS" />
+            <marker date="1511303146722" expanded="true" signature="17524:18114" ph="CREATE TABLE... RECETA_MEDICINA" />
+            <marker date="1511303146722" expanded="true" signature="18436:18844" ph="CREATE TABLE... MEDICINA_PACIENTE" />
+            <marker date="1511303146722" expanded="true" signature="19168:19541" ph="CREATE TABLE... STAFF" />
+            <marker date="1511303146722" expanded="true" signature="19168:19546" ph="CREATE TABLE... STAFF" />
+            <marker date="1511303146722" expanded="true" signature="19168:19587" ph="CREATE TABLE... STAFF" />
+            <marker date="1511303146722" expanded="true" signature="19168:19588" ph="CREATE TABLE... STAFF" />
+            <marker date="1511303146722" expanded="true" signature="19900:20192" ph="CREATE TABLE... EMERGENCIAS" />
+            <marker date="1511303146722" expanded="true" signature="19900:20516" ph="CREATE TABLE... EMERGENCIAS" />
+            <marker date="1511303146722" expanded="true" signature="20834:21387" ph="CREATE TABLE... RECOMENDACIONES" />
+            <marker date="1511303146722" expanded="true" signature="21709:22128" ph="CREATE TABLE... EVENTUALIDADES" />
+            <marker date="1511303146722" expanded="true" signature="22449:22672" ph="CREATE TABLE... DEPOSITOS" />
+            <marker date="1511303146722" expanded="true" signature="22449:22739" ph="CREATE TABLE... DEPOSITOS" />
+            <marker date="1511303146722" expanded="true" signature="22449:22740" ph="CREATE TABLE... DEPOSITOS" />
+            <marker date="1511303146722" expanded="true" signature="22449:23003" ph="CREATE TABLE... DEPOSITOS" />
+            <marker date="1511303146722" expanded="true" signature="23496:23517" ph="DROP TABLE F... " />
+            <marker date="1511303146722" expanded="true" signature="23619:23640" ph="DROP TABLE I... " />
+            <marker date="1511303146722" expanded="true" signature="23742:23760" ph="DROP TABLE R... " />
+            <marker date="1511303146722" expanded="true" signature="23862:23882" ph="DROP TABLE M... " />
+            <marker date="1511303146722" expanded="true" signature="23984:24010" ph="DROP TABLE R... " />
+            <marker date="1511303146722" expanded="true" signature="24112:24140" ph="DROP TABLE M... " />
+            <marker date="1511303146722" expanded="true" signature="24242:24258" ph="DROP TABLE S... " />
+            <marker date="1511303146722" expanded="true" signature="24360:24382" ph="DROP TABLE E... " />
+            <marker date="1511303146722" expanded="true" signature="24484:24510" ph="DROP TABLE R... " />
+            <marker date="1511303146722" expanded="true" signature="24612:24637" ph="DROP TABLE E... " />
+            <marker date="1511303146722" expanded="true" signature="24739:24750" ph="DROP TABLE E... " />
+            <marker date="1511303146722" expanded="true" signature="24739:24759" ph="DROP TABLE D... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/db/DropDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-792">
-          <caret line="37" column="49" lean-forward="false" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/staffEditForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615">
-          <caret line="9" column="260" lean-forward="false" selection-start-line="9" selection-start-column="260" selection-end-line="9" selection-end-column="260" />
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/db/ResetDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1467,349 +1471,294 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="44" column="2" lean-forward="true" selection-start-line="44" selection-start-column="2" selection-end-line="57" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="134" column="2" lean-forward="true" selection-start-line="134" selection-start-column="2" selection-end-line="154" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#829#830#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/emergenciaDetails.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/Initializable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/familiarForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/inquilinoEditForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="54" column="73" lean-forward="false" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
-          <folding>
-            <marker date="1509549085475" expanded="true" signature="4609:4886" ph="..." />
-            <marker date="1509549085475" expanded="true" signature="4635:4866" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Familiar_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Emergencias_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="88" column="28" lean-forward="false" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/perfil.fxml">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadDetails_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
-          <folding>
-            <marker date="1509547224599" expanded="true" signature="10451:10846" ph="..." />
-            <marker date="1509547224599" expanded="true" signature="10454:10796" ph="..." />
-            <marker date="1509547224599" expanded="true" signature="10509:10739" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Recomendaciones_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
-          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/recetaForm.fxml">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinaView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="252">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciaDetails_Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/PastilleroView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="81" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/Receta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionView_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/MedicinasFaltantes_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="117" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/recomendacionForm.fxml">
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/medicamentoForm_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="264" lean-forward="false" selection-start-line="9" selection-start-column="264" selection-end-line="9" selection-end-column="264" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/recomendacionView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="9" column="264" lean-forward="false" selection-start-line="9" selection-start-column="264" selection-end-line="9" selection-end-column="264" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1828#1829#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-            <element signature="e#1963#1964#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="161" column="121" lean-forward="true" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="121" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="61" column="39" lean-forward="false" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/util/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="59" column="44" lean-forward="false" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/util/SQLFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="40" column="15" lean-forward="false" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-          <folding>
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#964#965#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/inquilinos.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Inquilino_Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/db/DataBaseConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="480" column="65" lean-forward="false" selection-start-line="480" selection-start-column="65" selection-end-line="480" selection-end-column="65" />
-          <folding>
-            <marker date="1509549008357" expanded="true" signature="12998:13415" ph="CREATE TABLE... FAMILIARES" />
-            <marker date="1509549008357" expanded="true" signature="13732:14246" ph="CREATE TABLE... INQUILINOS" />
-            <marker date="1509549008357" expanded="true" signature="13732:14282" ph="CREATE TABLE... INQUILINOS" />
-            <marker date="1509549008357" expanded="true" signature="13732:14350" ph="CREATE TABLE... INQUILINOS" />
-            <marker date="1509549008357" expanded="true" signature="14667:14992" ph="CREATE TABLE... RECETAS" />
-            <marker date="1509549008357" expanded="true" signature="15306:15448" ph="CREATE TABLE... MEDICINAS" />
-            <marker date="1509549008357" expanded="true" signature="15765:16355" ph="CREATE TABLE... RECETA_MEDICINA" />
-            <marker date="1509549008357" expanded="true" signature="16677:17085" ph="CREATE TABLE... MEDICINA_PACIENTE" />
-            <marker date="1509549008357" expanded="true" signature="17409:17782" ph="CREATE TABLE... STAFF" />
-            <marker date="1509549008357" expanded="true" signature="17409:17787" ph="CREATE TABLE... STAFF" />
-            <marker date="1509549008357" expanded="true" signature="17409:17828" ph="CREATE TABLE... STAFF" />
-            <marker date="1509549008357" expanded="true" signature="17409:17829" ph="CREATE TABLE... STAFF" />
-            <marker date="1509549008357" expanded="true" signature="18141:18433" ph="CREATE TABLE... EMERGENCIAS" />
-            <marker date="1509549008357" expanded="true" signature="18141:18757" ph="CREATE TABLE... EMERGENCIAS" />
-            <marker date="1509549008357" expanded="true" signature="19075:19628" ph="CREATE TABLE... RECOMENDACIONES" />
-            <marker date="1509549008357" expanded="true" signature="20127:20148" ph="DROP TABLE F... " />
-            <marker date="1509549008357" expanded="true" signature="20250:20271" ph="DROP TABLE I... " />
-            <marker date="1509549008357" expanded="true" signature="20373:20391" ph="DROP TABLE R... " />
-            <marker date="1509549008357" expanded="true" signature="20493:20513" ph="DROP TABLE M... " />
-            <marker date="1509549008357" expanded="true" signature="20615:20641" ph="DROP TABLE R... " />
-            <marker date="1509549008357" expanded="true" signature="20743:20771" ph="DROP TABLE M... " />
-            <marker date="1509549008357" expanded="true" signature="20873:20889" ph="DROP TABLE S... " />
-            <marker date="1509549008357" expanded="true" signature="20991:21013" ph="DROP TABLE E... " />
-            <marker date="1509549008357" expanded="true" signature="21115:21141" ph="DROP TABLE R... " />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="53" column="3" lean-forward="false" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoForm_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="208">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Views/inquilinoForm.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Inquilinos_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Views/inquilinoEditForm.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="156" column="23" lean-forward="false" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/RecetaMedicina_Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/RecetaMedicina.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaView_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="79" column="81" lean-forward="false" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/addMedicamentoForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="108" column="23" lean-forward="false" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Elementos/Depositos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="55" column="13" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Connection/Depositos_Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="110" column="15" lean-forward="false" selection-start-line="110" selection-start-column="15" selection-end-line="110" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/FamiliarForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="66" column="13" lean-forward="false" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EmergenciasForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Staff_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/StaffForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="63" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecetaForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="121" column="36" lean-forward="false" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/StaffEditForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/RecomendacionForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="68" column="13" lean-forward="false" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/EventualidadForm_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="92" column="51" lean-forward="false" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Inquilino.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="84" column="3" lean-forward="false" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
-          <folding>
-            <element signature="e#2604#2605#0" expanded="true" />
-            <element signature="e#2642#2643#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Perfil_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="122" column="4" lean-forward="true" selection-start-line="122" selection-start-column="4" selection-end-line="125" selection-end-column="5" />
-          <folding>
-            <element signature="e#11797#11820#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/InquilinoEditForm_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-367">
-          <caret line="72" column="136" lean-forward="false" selection-start-line="72" selection-start-column="136" selection-end-line="72" selection-end-column="136" />
+        <state relative-caret-position="432">
+          <caret line="34" column="167" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="167" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Familiar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/Individuos/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Views/staffForm.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Views/addMedicamentoForm.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/inquilinos.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1494">
+          <caret line="104" column="70" lean-forward="false" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/GUI/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amss/app/util/PDF_Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="58" column="40" lean-forward="false" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1819,10 +1768,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>AMSS_FinalProject:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1890,7 +1841,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>hamcrest-core-1.3</last-edited>
+          <last-edited>sqlite-jdbc-3.16.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

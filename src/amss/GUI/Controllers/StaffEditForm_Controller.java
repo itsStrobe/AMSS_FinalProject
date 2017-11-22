@@ -1,13 +1,9 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
-import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
-import amss.app.util.RandomUuidGenerator;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;
-import amss.app.util.Uuid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,10 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 /**
@@ -63,16 +57,15 @@ public class StaffEditForm_Controller implements Initializable{
     this.posicionField.setValue(staff.getPosicion());
   }
 
-  public void setSelectedStaff() {
-    Collection<Staff> staff = null;
-    try {
-      staff = staff_model.getSingleStaffById(Uuid.parse(stfId.getText()));
-    } catch (IOException e) {}
-
-    selectedStaff = staff.iterator().next();
+  public void setSelectedStaff(Staff staff) {
+    this.selectedStaff = staff;
   }
 
   public void update_Staff() throws Exception {
+    if(nombreField.getText().isEmpty() || telefonoField.getText().isEmpty() || turnoField.getText().isEmpty() || posicionField.getValue().isEmpty() || fechaNacimientoField.getValue() == null) {
+      return;
+    }
+
     String nombre = nombreField.getText();
     String telefono = telefonoField.getText();
     String turno = turnoField.getText();
@@ -96,7 +89,7 @@ public class StaffEditForm_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/staff.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/staff.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

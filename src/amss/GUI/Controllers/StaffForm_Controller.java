@@ -1,8 +1,6 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
-import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
 import amss.app.util.RandomUuidGenerator;
 import amss.app.util.Time;
@@ -44,7 +42,6 @@ public class StaffForm_Controller implements Initializable{
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
     Uuid uuidBase = Uuid.NULL;
     try {
       uuidBase = Uuid.parse("108.0000000000");
@@ -62,6 +59,10 @@ public class StaffForm_Controller implements Initializable{
   }
 
   public void add_Staff() throws Exception {
+    if(nombreField.getText().isEmpty() || telefonoField.getText().isEmpty() || turnoField.getText().isEmpty() || posicionField.getValue().isEmpty() || fechaNacimientoField.getValue() == null) {
+      return;
+    }
+
     Uuid uuid = uuidGenerator.make();
     String nombre = nombreField.getText();
     String telefono = telefonoField.getText();
@@ -71,7 +72,6 @@ public class StaffForm_Controller implements Initializable{
 
     Staff newStaff = new Staff(uuid, nombre, telefono, turno, posicion, fechaN);
 
-
     staff_model.add(newStaff);
 
     transition_Back();
@@ -79,7 +79,7 @@ public class StaffForm_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/staff.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/staff.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

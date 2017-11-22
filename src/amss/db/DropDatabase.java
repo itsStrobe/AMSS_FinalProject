@@ -1,7 +1,5 @@
 package amss.db;
 
-import java.sql.DatabaseMetaData;
-
 public class DropDatabase {
   public static void main(String args[]) {
     DataBaseConnection connection = new DataBaseConnection();

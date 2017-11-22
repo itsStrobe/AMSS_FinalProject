@@ -1,5 +1,8 @@
 package amss.app.Individuos;
 
+import amss.app.Elementos.Emergencias;
+import amss.app.Elementos.Receta;
+import amss.app.Elementos.Recomendaciones;
 import amss.app.util.RandomUuidGenerator;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
@@ -25,6 +28,9 @@ public final class Inquilino {
   private String strCuarto;
   private String strPadecimientos;
   private Collection<Familiar> familiares;
+  private Collection<Receta> recetas;
+  private Collection<Recomendaciones> recomendaciones;
+  private Collection<Emergencias> emergencias;
 
   public Inquilino(Uuid id, String strNombre, String strDireccion, Time tFechaNacimiento, Uuid idResponsable, char cEstatus, String strCuarto, String strPadecimientos) {
     this.id = id;
@@ -62,6 +68,26 @@ public final class Inquilino {
 
   public void setResponsable(Familiar responsable) {
     this.idResponsable = responsable.getId();
+  }
+
+  public void setFamiliares(Collection<Familiar> familiares) {
+    this.familiares = familiares;
+  }
+
+  public void setRecetas(Collection<Receta> recetas) {
+    this.recetas = recetas;
+  }
+
+  public void setRecomendaciones(Collection<Recomendaciones> recomendaciones) {
+    this.recomendaciones = recomendaciones;
+  }
+
+  public void setEmergencias(Collection<Emergencias> emergencias) {
+    this.emergencias = emergencias;
+  }
+
+  public void addReceta(Receta receta) {
+    this.recetas.add(receta);
   }
 
   public Uuid getId()
@@ -105,6 +131,18 @@ public final class Inquilino {
 
   public Collection<Familiar> getFamiliares()
   {
-    return familiares;
+    return this.familiares;
+  }
+
+  public Collection<Receta> getRecetas() {
+    return this.recetas;
+  }
+
+  public Collection<Recomendaciones> getRecomendaciones() {
+    return this.recomendaciones;
+  }
+
+  public Collection<Emergencias> getEmergencias() {
+    return this.emergencias;
   }
 }

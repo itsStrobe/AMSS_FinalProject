@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_amss_finalproject" default="compile.module.amss_finalproject">
+  <dirname property="module.amss_finalproject.basedir" file="${ant.file.module_amss_finalproject}"/>
+  
+  <property name="module.jdk.home.amss_finalproject" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.amss_finalproject" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.amss_finalproject" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.amss_finalproject" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="amss_finalproject.output.dir" value="${module.amss_finalproject.basedir}/../bin"/>
+  <property name="amss_finalproject.testoutput.dir" value="${module.amss_finalproject.basedir}/../test"/>
+  
+  <path id="amss_finalproject.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="amss_finalproject.module.production.classpath">
+    <path refid="${module.jdk.classpath.amss_finalproject}"/>
+    <path refid="library.sqlite-jdbc-3.16.1.classpath"/>
+    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.itext5-itextpdf-5.5.12.classpath"/>
+  </path>
+  
+  <path id="amss_finalproject.runtime.production.module.classpath">
+    <pathelement location="${amss_finalproject.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.16.1.classpath"/>
+    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.itext5-itextpdf-5.5.12.classpath"/>
+  </path>
+  
+  <path id="amss_finalproject.module.classpath">
+    <path refid="${module.jdk.classpath.amss_finalproject}"/>
+    <pathelement location="${amss_finalproject.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.16.1.classpath"/>
+    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.itext5-itextpdf-5.5.12.classpath"/>
+  </path>
+  
+  <path id="amss_finalproject.runtime.module.classpath">
+    <pathelement location="${amss_finalproject.testoutput.dir}"/>
+    <pathelement location="${amss_finalproject.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.16.1.classpath"/>
+    <path refid="library.junit-4.12.classpath"/>
+    <path refid="library.hamcrest-core-1.3.classpath"/>
+    <path refid="library.itext5-itextpdf-5.5.12.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.amss_finalproject">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.amss_finalproject">
+    <patternset refid="excluded.from.module.amss_finalproject"/>
+  </patternset>
+  
+  <path id="amss_finalproject.module.sourcepath">
+    <dirset dir="${module.amss_finalproject.basedir}/../../AMSS_FinalProject">
+      <include name="src"/>
+      <include name="Libraries"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.amss_finalproject" depends="compile.module.amss_finalproject.production,compile.module.amss_finalproject.tests" description="Compile module AMSS_FinalProject"/>
+  
+  <target name="compile.module.amss_finalproject.production" depends="register.custom.compilers" description="Compile module AMSS_FinalProject; production classes">
+    <mkdir dir="${amss_finalproject.output.dir}"/>
+    <javac2 destdir="${amss_finalproject.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.amss_finalproject}/javac">
+      <compilerarg line="${compiler.args.amss_finalproject}"/>
+      <bootclasspath refid="amss_finalproject.module.bootclasspath"/>
+      <classpath refid="amss_finalproject.module.production.classpath"/>
+      <src refid="amss_finalproject.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.amss_finalproject"/>
+    </javac2>
+    
+    <copy todir="${amss_finalproject.output.dir}">
+      <fileset dir="${module.amss_finalproject.basedir}/../src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.amss_finalproject.basedir}/../Libraries">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.amss_finalproject.tests" depends="register.custom.compilers,compile.module.amss_finalproject.production" description="compile module AMSS_FinalProject; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.amss_finalproject" description="cleanup module">
+    <delete dir="${amss_finalproject.output.dir}"/>
+    <delete dir="${amss_finalproject.testoutput.dir}"/>
+  </target>
+</project>

@@ -9,11 +9,11 @@ import amss.app.util.Uuid;
  * Created by Jose Zavala on 31/10/17.
  */
 public class EmergenciasView {
-  Uuid id;
-  String titulo;
-  String inquilino;
-  Time fecha;
-  Inquilino_Model inquilino_model = new Inquilino_Model();
+  private Uuid id;
+  private String titulo;
+  private String inquilino;
+  private Time fecha;
+  private final Inquilino_Model inquilino_model = new Inquilino_Model();
 
   EmergenciasView(Emergencias emergencias) {
     this.id = emergencias.getId();

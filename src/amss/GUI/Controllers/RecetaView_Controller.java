@@ -1,22 +1,21 @@
 package amss.GUI.Controllers;
 
 import amss.app.Connection.Inquilino_Model;
+import amss.app.Connection.Medicina_Model;
 import amss.app.Connection.RecetaMedicina_Model;
 import amss.app.Connection.Receta_Model;
+import amss.app.Elementos.Medicina;
 import amss.app.Elementos.Receta;
 import amss.app.Elementos.RecetaMedicina;
-import amss.app.Individuos.Familiar;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
-import com.sun.org.apache.regexp.internal.RE;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -60,12 +59,12 @@ public class RecetaView_Controller implements Initializable {
   Inquilino selectedInquilino;
   Receta selectedReceta;
 
-  Inquilino_Model inquilino_model = new Inquilino_Model();
-  Receta_Model receta_model = new Receta_Model();
-  RecetaMedicina_Model recetaMedicina_model = new RecetaMedicina_Model();
+  private final Inquilino_Model inquilino_model = new Inquilino_Model();
+  private final Medicina_Model medicina_model = new Medicina_Model();
+  private final Receta_Model receta_model = new Receta_Model();
+  private final RecetaMedicina_Model recetaMedicina_model = new RecetaMedicina_Model();
 
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
   }
 
   private List<RecetaMedicina> parseListRecetaMedicina() {
@@ -74,7 +73,8 @@ public class RecetaView_Controller implements Initializable {
     List<RecetaMedicina> recetaMedicinas = new ArrayList<>();
 
     for(RecetaMedicina recetaMedicina : recetaMedicina_model.getAllMedicinasOfReceta(selectedReceta.getId())) {
-      recetaMedicinas.add(recetaMedicina);
+      Medicina medicina = medicina_model.getSingleMedicinaByID(recetaMedicina.getId()).iterator().next();
+      recetaMedicinas.add(new RecetaMedicina(medicina, recetaMedicina.getRecetaId(), recetaMedicina.getMorning(), recetaMedicina.getEvening(), recetaMedicina.getNight(), recetaMedicina.getEndDate())) ;
     }
 
     return recetaMedicinas;
@@ -134,7 +134,7 @@ public class RecetaView_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -145,6 +145,7 @@ public class RecetaView_Controller implements Initializable {
     Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
     controller.setPrevStage(stage);
     controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(this.selectedInquilino);
     controller.loadInfo();
 
     stage.setTitle("Inquilino");

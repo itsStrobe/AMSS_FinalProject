@@ -18,10 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
 
@@ -61,19 +59,19 @@ public class InquilinoEditForm_Controller implements Initializable{
     edEstatusField.getItems().add("Fallecido");
   }
 
-  public void setInquilinoInfo(Inquilino inquilino) {
-    System.out.println(inquilino.getNombre());
-    this.inqID.setText(SQLFormatter.sqlID(inquilino.getId()));
-    this.edNombreField.setText(inquilino.getNombre());
-    this.edDireccionField.setText(inquilino.getDireccion());
-    this.edCuartoField.setText(inquilino.getCuarto());
-    this.edPadecimientoField.setText(inquilino.getPadecimientos());
+  public void setInquilinoInfo() {
+    System.out.println(selectedInquilino.getNombre());
+    this.inqID.setText(SQLFormatter.sqlID(selectedInquilino.getId()));
+    this.edNombreField.setText(selectedInquilino.getNombre());
+    this.edDireccionField.setText(selectedInquilino.getDireccion());
+    this.edCuartoField.setText(selectedInquilino.getCuarto());
+    this.edPadecimientoField.setText(selectedInquilino.getPadecimientos());
 
-    if(!inquilino.getIdResponsable().equals(Uuid.NULL)) {
-      this.edFamiliaresField.setValue(familiar_model.getSingleFamiliarById(inquilino.getIdResponsable()).iterator().next().getNombre());
+    if(!selectedInquilino.getIdResponsable().equals(Uuid.NULL)) {
+      this.edFamiliaresField.setValue(familiar_model.getSingleFamiliarById(selectedInquilino.getIdResponsable()).iterator().next().getNombre());
     }
 
-    switch (inquilino.getEstatus()) {
+    switch (selectedInquilino.getEstatus()) {
       case 'a':
         edEstatusField.setValue("Activo");
         break;
@@ -86,14 +84,8 @@ public class InquilinoEditForm_Controller implements Initializable{
     }
   }
 
-  public void setSelectedInquilino() {
-    Collection<Inquilino> inquilinos = null;
-    try {
-      inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
-    } catch (IOException e) {}
-
-    selectedInquilino = inquilinos.iterator().next();
-    System.out.println("This Inquilino: " + selectedInquilino.getNombre());
+  public void setSelectedInquilino(Inquilino inquilino) {
+    this.selectedInquilino = inquilino;
   }
 
   public void setPrevStage(Stage stage) {
@@ -109,15 +101,17 @@ public class InquilinoEditForm_Controller implements Initializable{
   }
 
   public void update_Inquilino() throws Exception {
-    setSelectedInquilino();
+    if(edNombreField.getText().isEmpty() || edDireccionField.getText().isEmpty() || edCuartoField.getText().isEmpty() || edPadecimientoField.getText().isEmpty()) {
+      return;
+    }
 
     String nombre = edNombreField.getText();
     String direccion = edDireccionField.getText();
     Time fechaN = selectedInquilino.getFechaNacimiento();
     String cuarto = edCuartoField.getText();
-    char estatus;
+    Uuid responsable = selectedInquilino.getIdResponsable();
+    char estatus = selectedInquilino.getEstatus();
     String padecimientos = edPadecimientoField.getText();
-    Uuid responsableId = Uuid.NULL;
 
     if(edEstatusField.getValue().equals("Activo")) {
       estatus = 'a';
@@ -133,7 +127,7 @@ public class InquilinoEditForm_Controller implements Initializable{
       fechaN = Time.fromMs(Time.getDateInMs(edFechaNacField.getValue().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"))));
     }
 
-    Inquilino newInquilino = new Inquilino(selectedInquilino.getId(), nombre, direccion, fechaN, cuarto, padecimientos);
+    Inquilino newInquilino = new Inquilino(selectedInquilino.getId(), nombre, direccion, fechaN, responsable, estatus, cuarto, padecimientos);
 
     if(edFamiliaresField.getValue() != null) {
       newInquilino.setResponsable(familiar_model.getFamiliaresOfInquilinoByName(newInquilino, edFamiliaresField.getValue()).iterator().next());
@@ -148,7 +142,7 @@ public class InquilinoEditForm_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

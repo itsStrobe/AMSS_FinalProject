@@ -1,10 +1,8 @@
 package amss.GUI.Controllers;
 
 import amss.app.Connection.Medicina_Model;
-import amss.app.Connection.RecetaMedicina_Model;
 import amss.app.Elementos.RecetaMedicina;
 import amss.app.util.Uuid;
-import javafx.util.StringConverter;
 
 /**
  * Created by Jose Zavala on 25/10/17.

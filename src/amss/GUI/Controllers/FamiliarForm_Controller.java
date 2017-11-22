@@ -5,7 +5,6 @@ import amss.app.Connection.Inquilino_Model;
 import amss.app.Individuos.Familiar;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.RandomUuidGenerator;
-import amss.app.util.SQLFormatter;
 import amss.app.util.Uuid;
 
 import javafx.fxml.FXML;
@@ -19,7 +18,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 /**
@@ -45,7 +43,6 @@ public class FamiliarForm_Controller implements Initializable{
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    String fileName = location.getFile().substring(location.getFile().lastIndexOf('/') + 1, location.getFile().length());
     Uuid uuidBase = Uuid.NULL;
     try {
       uuidBase = Uuid.parse("102.0000000000");
@@ -59,52 +56,20 @@ public class FamiliarForm_Controller implements Initializable{
     this.prevStage = stage;
   }
 
-  public void setInquilinoInfo(Inquilino inquilino) {
-    System.out.println(inquilino.getNombre());
-    this.inqID.setText(SQLFormatter.sqlID(inquilino.getId()));
-  }
-
-  private void setSelectedInquilino() {
-    Collection<Inquilino> inquilinos = null;
-    try {
-      inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
-    } catch (IOException e) {}
-
-    selectedInquilino = inquilinos.iterator().next();
-    System.out.println("Selected Inquilino: " + selectedInquilino.getId());
-  }
-
-  public void transition_Back() throws Exception {
-    Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
-
-    Pane myPane = (Pane) myLoader.load();
-    Scene myScene = new Scene(myPane);
-    stage.setScene(myScene);
-
-    setSelectedInquilino();
-
-    Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
-    controller.setPrevStage(stage);
-    controller.setInquilinoInfo(this.selectedInquilino);
-    controller.setSelectedInquilino(this.selectedInquilino);
-    controller.loadInfo();
-
-    stage.setTitle("Inquilino");
-
-    prevStage.close();
-
-    stage.show();
+  public void setSelectedInquilino(Inquilino inquilino) {
+    this.selectedInquilino = inquilino;
   }
 
   public void add_Familiar() throws Exception {
+    if(famNombre.getText().isEmpty() || famTelefono.getText().isEmpty() || famDireccion.getText().isEmpty()) {
+      return;
+    }
+
     Uuid uuid = uuidGenerator.make();
     String nombre = famNombre.getText();
     String telefono = famTelefono.getText();
     String direccion = famDireccion.getText();
     boolean isResponsable = famResponsable.isSelected();
-
-    setSelectedInquilino();
 
     Familiar newFamiliar = new Familiar(uuid, this.selectedInquilino.getId(), nombre, telefono, direccion);
 
@@ -118,5 +83,26 @@ public class FamiliarForm_Controller implements Initializable{
     familiar_model.add(newFamiliar);
 
     transition_Back();
+  }
+
+  public void transition_Back() throws Exception {
+    Stage stage = new Stage();
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
+
+    Pane myPane = (Pane) myLoader.load();
+    Scene myScene = new Scene(myPane);
+    stage.setScene(myScene);
+
+    Perfil_Controller controller = (Perfil_Controller) myLoader.getController();
+    controller.setPrevStage(stage);
+    controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(this.selectedInquilino);
+    controller.loadInfo();
+
+    stage.setTitle("Inquilino");
+
+    prevStage.close();
+
+    stage.show();
   }
 }

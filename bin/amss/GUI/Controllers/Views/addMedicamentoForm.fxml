@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="amss.GUI.Controllers.addMedicamentoForm_Controller">
+   <children>
+      <VBox prefHeight="547.0" prefWidth="794.0">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#transition_Back" onMenuValidation="#transition_Back" onShowing="#transition_Back" onShown="#transition_Back">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#transition_Back" text="Volver" />
+                     </graphic>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label prefHeight="70.0" prefWidth="794.0" text="                                                                      Nueva Medicina" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="inqID" prefHeight="25.0" prefWidth="525.0" textAlignment="RIGHT" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="94.0" prefWidth="76.0" />
+                  <VBox prefHeight="97.0" prefWidth="183.0">
+                     <children>
+                        <Label prefHeight="55.0" prefWidth="158.0" text="Medicamento:" />
+                        <Label prefHeight="61.0" prefWidth="158.0" text="Cantidad:" />
+                        <Separator orientation="VERTICAL" prefHeight="21.0" prefWidth="510.0" />
+                        <Label prefHeight="37.0" prefWidth="158.0" text="Quien Deposita?:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="483.0" prefWidth="492.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ChoiceBox fx:id="medBox" prefHeight="25.0" prefWidth="367.0" />
+                              <Button mnemonicParsing="false" onAction="#addMedicamento" prefHeight="25.0" prefWidth="155.0" text="Nueva Medicina" />
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="21.0" prefWidth="510.0" />
+                        <TextField fx:id="canText" />
+                        <Separator orientation="VERTICAL" prefHeight="21.0" prefWidth="510.0" />
+                        <ChoiceBox fx:id="famBox" prefHeight="25.0" prefWidth="520.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefHeight="47.0" prefWidth="794.0" />
+            <HBox prefHeight="61.0" prefWidth="608.0">
+               <children>
+                  <Separator prefHeight="0.0" prefWidth="349.0" />
+                  <Button mnemonicParsing="false" onAction="#create" text="Crear" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

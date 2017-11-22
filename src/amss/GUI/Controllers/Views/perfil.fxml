@@ -44,7 +44,7 @@
                                     <Label text="Direccion" />
                                     <Label text="Edad" />
                                     <Label text="Estatus" />
-                                    <Label text="Cuarto" />
+                                    <Label text="Cuarto/Cama" />
                                     <Label text="Padecimientos" />
                                     <Separator prefHeight="29.0" prefWidth="98.0" />
                                     <Label text="Responsable:" />
@@ -68,6 +68,7 @@
                            </children>
                         </HBox>
                         <Button mnemonicParsing="false" onAction="#update_Inquilino" prefHeight="38.0" prefWidth="232.0" text="Actualizar Informacion" />
+                        <Button mnemonicParsing="false" onAction="#generateInquilinoReport" prefHeight="52.0" prefWidth="231.0" text="Generar Reporte" />
                      </children>
                   </VBox>
                   <TabPane prefHeight="519.0" prefWidth="593.0" tabClosingPolicy="UNAVAILABLE">
@@ -98,7 +99,7 @@
                                           <TableColumn fx:id="medCantidad" minWidth="0.0" prefWidth="110.0" text="Cantidad" />
                                           <TableColumn prefWidth="89.0">
                                              <graphic>
-                                                <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
+                                                <Button mnemonicParsing="false" onAction="#depositarMed" prefHeight="27.0" prefWidth="80.0" text="Agregar" />
                                              </graphic>
                                           </TableColumn>
                                        </columns>

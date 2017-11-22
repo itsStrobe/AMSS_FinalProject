@@ -4,13 +4,13 @@ import amss.app.Connection.*;
 import amss.app.Elementos.*;
 import amss.app.Individuos.Familiar;
 import amss.app.Individuos.Inquilino;
+import amss.app.util.PDF_Generator;
 import amss.app.util.SQLFormatter;
 import amss.app.util.Time;
 import amss.app.util.Uuid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import amss.GUI.Main;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,12 +33,13 @@ import java.util.ResourceBundle;
 public class Perfil_Controller implements Initializable {
 
   private Inquilino selectedInquilino;
-  private Inquilino_Model inquilino_model = new Inquilino_Model();
-  private Familiar_Model familiar_model = new Familiar_Model();
-  private PacienteMedicina_Model pacienteMedicina_model = new PacienteMedicina_Model();
-  private RecetaMedicina_Model recetaMedicina_model = new RecetaMedicina_Model();
-  private Receta_Model receta_model = new Receta_Model();
-  private Recomendaciones_Model recomendaciones_model = new Recomendaciones_Model();
+  private final Inquilino_Model inquilino_model = new Inquilino_Model();
+  private final Familiar_Model familiar_model = new Familiar_Model();
+  private final PacienteMedicina_Model pacienteMedicina_model = new PacienteMedicina_Model();
+  private final RecetaMedicina_Model recetaMedicina_model = new RecetaMedicina_Model();
+  private final Receta_Model receta_model = new Receta_Model();
+  private final Recomendaciones_Model recomendaciones_model = new Recomendaciones_Model();
+  private final Emergencias_Model emergencias_model = new Emergencias_Model();
 
   @FXML
   private Label inqID = new Label();
@@ -103,7 +103,7 @@ public class Perfil_Controller implements Initializable {
   @FXML
   private TableColumn<Recomendaciones, Time> recoFecha;
 
-  Stage prevStage;
+  private Stage prevStage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -142,19 +142,8 @@ public class Perfil_Controller implements Initializable {
     }
   }
 
-  private void setSelectedInquilino() {
-    Collection<Inquilino> inquilinos = null;
-    try {
-      inquilinos = inquilino_model.getSingleInquilinoById(Uuid.parse(inqID.getText()));
-    } catch (IOException e) {}
-
-    selectedInquilino = inquilinos.iterator().next();
-    System.out.println("This Inquilino: " + selectedInquilino.getNombre());
-  }
-
   public void setSelectedInquilino(Inquilino inquilino) {
-    selectedInquilino = inquilino;
-    System.out.println("This Inquilino: " + selectedInquilino.getNombre());
+    this.selectedInquilino = inquilino;
   }
 
   private List<Familiar> parseListFamiliares() {List<Familiar> familiares = new ArrayList<>();
@@ -225,6 +214,20 @@ public class Perfil_Controller implements Initializable {
     return recomendacionesArrayList;
   }
 
+  public void generateInquilinoReport() {
+    selectedInquilino.setRecomendaciones(recomendaciones_model.getAllRecomendacionesOfInquilino(selectedInquilino.getId()));
+    selectedInquilino.setEmergencias(emergencias_model.getAllEmergenciasOfInquilino(selectedInquilino.getId()));
+    Collection<Receta> recetas = new ArrayList<>();
+    for(Receta receta : receta_model.getAllRecetasOfPaciente(selectedInquilino.getId())) {
+      receta.setMedicinas(recetaMedicina_model.getAllMedicinasOfReceta(receta.getId()));
+      recetas.add(receta);
+    }
+    selectedInquilino.setRecetas(recetas);
+    selectedInquilino.setFamiliares(familiar_model.getFamiliaresOfInquilino(selectedInquilino));
+
+    PDF_Generator.generateInquilinoReport(selectedInquilino);
+  }
+
   public void setPrevStage(Stage stage) {
     this.prevStage = stage;
   }
@@ -272,7 +275,7 @@ public class Perfil_Controller implements Initializable {
 
   public void update_Inquilino() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinoEditForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/inquilinoEditForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -280,8 +283,8 @@ public class Perfil_Controller implements Initializable {
 
     InquilinoEditForm_Controller controller = (InquilinoEditForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
-    controller.setInquilinoInfo(selectedInquilino);
-    controller.setSelectedInquilino();
+    controller.setSelectedInquilino(selectedInquilino);
+    controller.setInquilinoInfo();
     controller.loadInfo();
 
     stage.setTitle("Editar Inquilino");
@@ -291,19 +294,18 @@ public class Perfil_Controller implements Initializable {
     stage.show();
   }
 
-  public void addMedicamento() throws Exception {
+  public void depositarMed() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/medicamentoForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/addMedicamentoForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
     stage.setScene(myScene);
 
-    medicamentoForm_Controller controller = (medicamentoForm_Controller) myLoader.getController();
+    addMedicamentoForm_Controller controller = (addMedicamentoForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
-    controller.setPrevScreen("Perfil");
-
-    stage.setTitle("Nuevo Medicamento");
+    controller.setSelectedInquilino(selectedInquilino);
+    controller.setFamiliares();
 
     prevStage.close();
 
@@ -312,7 +314,7 @@ public class Perfil_Controller implements Initializable {
 
   public void agregarFamiliar() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/familiarForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/familiarForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -320,7 +322,7 @@ public class Perfil_Controller implements Initializable {
 
     FamiliarForm_Controller controller = (FamiliarForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
-    controller.setInquilinoInfo(this.selectedInquilino);
+    controller.setSelectedInquilino(selectedInquilino);
 
     stage.setTitle("Nuevo Familiar");
 
@@ -334,7 +336,7 @@ public class Perfil_Controller implements Initializable {
       Receta receta = recTable.getSelectionModel().getSelectedItem();
 
       Stage stage = new Stage(StageStyle.DECORATED);
-      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recetaView.fxml"));
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/recetaView.fxml"));
 
       Pane myPane = (Pane) myLoader.load();
       Scene myScene = new Scene(myPane);
@@ -356,7 +358,7 @@ public class Perfil_Controller implements Initializable {
 
   public void transition_RecetaForm() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recetaForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/recetaForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -364,7 +366,7 @@ public class Perfil_Controller implements Initializable {
 
     RecetaForm_Controller controller = (RecetaForm_Controller) myLoader.getController();
     controller.setPrevStage(stage);
-    controller.setInquilinoInfo(selectedInquilino);
+    controller.setSelectedInquilino(selectedInquilino);
 
     stage.setTitle("Nueva Receta");
 
@@ -378,7 +380,7 @@ public class Perfil_Controller implements Initializable {
       Recomendaciones recomendacion = recoTable.getSelectionModel().getSelectedItem();
 
       Stage stage = new Stage(StageStyle.DECORATED);
-      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recomendacionView.fxml"));
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/recomendacionView.fxml"));
 
       Pane myPane = (Pane) myLoader.load();
       Scene myScene = new Scene(myPane);
@@ -400,7 +402,7 @@ public class Perfil_Controller implements Initializable {
 
   public void transition_RecomendacionForm() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/recomendacionForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/recomendacionForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -419,7 +421,7 @@ public class Perfil_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinos.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/inquilinos.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

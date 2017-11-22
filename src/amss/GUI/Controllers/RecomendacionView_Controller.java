@@ -1,8 +1,6 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
-import amss.app.Elementos.Emergencias;
 import amss.app.Elementos.Recomendaciones;
 import amss.app.Individuos.Inquilino;
 import amss.app.util.Uuid;
@@ -60,7 +58,7 @@ public class RecomendacionView_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

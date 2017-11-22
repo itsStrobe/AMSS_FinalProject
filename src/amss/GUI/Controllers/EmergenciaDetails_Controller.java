@@ -1,10 +1,8 @@
 package amss.GUI.Controllers;
 
-import amss.app.Connection.Emergencias_Model;
 import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
 import amss.app.Elementos.Emergencias;
-import amss.app.util.RandomUuidGenerator;
 import amss.app.util.Uuid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,8 +33,8 @@ public class EmergenciaDetails_Controller implements Initializable{
   private Stage prevStage;
   private Emergencias selectedEmergencia;
 
-  private Inquilino_Model inquilino_model = new Inquilino_Model();
-  private Staff_Model staff_model = new Staff_Model();
+  private final Inquilino_Model inquilino_model = new Inquilino_Model();
+  private final Staff_Model staff_model = new Staff_Model();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -65,7 +62,7 @@ public class EmergenciaDetails_Controller implements Initializable{
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergencias.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/emergencias.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

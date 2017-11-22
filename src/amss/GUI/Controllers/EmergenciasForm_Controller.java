@@ -4,7 +4,6 @@ import amss.app.Connection.Emergencias_Model;
 import amss.app.Connection.Inquilino_Model;
 import amss.app.Connection.Staff_Model;
 import amss.app.Elementos.Emergencias;
-import amss.app.Elementos.Medicina;
 import amss.app.Individuos.Inquilino;
 import amss.app.Individuos.Staff;
 import amss.app.util.RandomUuidGenerator;
@@ -44,7 +43,7 @@ public class EmergenciasForm_Controller implements Initializable {
   private final Emergencias_Model emergencias_model = new Emergencias_Model();
 
   private Emergencias emergencia;
-  Stage prevStage;
+  private Stage prevStage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -74,6 +73,10 @@ public class EmergenciasForm_Controller implements Initializable {
   }
 
   public void add_Emergencia() throws Exception {
+    if(tituloField.getText().isEmpty() || contenidoField.getText().isEmpty()) {
+      return;
+    }
+
     Uuid uuid = uuidGenerator.make();
     String titulo = tituloField.getText();
     String contenido = contenidoField.getText();
@@ -101,7 +104,7 @@ public class EmergenciasForm_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/emergencias.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/emergencias.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

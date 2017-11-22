@@ -38,9 +38,9 @@ public class Inquilinos_Controller implements Initializable {
   @FXML
   private TableColumn<Inquilino, String> Cuarto;
 
-  Stage prevStage;
+  private Stage prevStage;
 
-  private Inquilino_Model model = new Inquilino_Model();
+  private final Inquilino_Model model = new Inquilino_Model();
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -56,7 +56,7 @@ public class Inquilinos_Controller implements Initializable {
 
   public void transition_NuevoInquilino() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinoForm.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/inquilinoForm.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);
@@ -81,7 +81,7 @@ public class Inquilinos_Controller implements Initializable {
       Inquilino inquilino = inquilinosTable.getSelectionModel().getSelectedItem();
 
       Stage stage = new Stage(StageStyle.DECORATED);
-      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/perfil.fxml"));
+      FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/perfil.fxml"));
 
       Pane myPane = (Pane) myLoader.load();
       Scene myScene = new Scene(myPane);
@@ -114,7 +114,7 @@ public class Inquilinos_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../MainWindow.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/MainWindow.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

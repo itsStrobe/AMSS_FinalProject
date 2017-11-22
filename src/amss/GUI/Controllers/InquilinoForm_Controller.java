@@ -18,7 +18,6 @@ import javafx.fxml.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-
 /**
  * Created by German y Jose Zavala on 10/17/17.
  */
@@ -37,8 +36,7 @@ public class InquilinoForm_Controller implements Initializable {
 
   private Uuid.Generator uuidGenerator;
   private final Inquilino_Model inquilino_model = new Inquilino_Model();
-  private Inquilino inquilino;
-  Stage prevStage;
+  private Stage prevStage;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -55,11 +53,11 @@ public class InquilinoForm_Controller implements Initializable {
     this.prevStage = stage;
   }
 
-  public void setInquilino(Inquilino inquilino) {
-    this.inquilino = inquilino;
-  }
-
   public void add_Inquilino() throws Exception {
+    if(nombreField.getText().isEmpty() || direccionField.getText().isEmpty() || fechaNacField.getValue() == null || cuartoField.getText().isEmpty() || padecimientoField.getText().isEmpty()) {
+      return;
+    }
+
     Uuid uuid = uuidGenerator.make();
     String nombre = nombreField.getText();
     String direccion = direccionField.getText();
@@ -76,7 +74,7 @@ public class InquilinoForm_Controller implements Initializable {
 
   public void transition_Back() throws Exception {
     Stage stage = new Stage();
-    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("../Views/inquilinos.fxml"));
+    FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Views/inquilinos.fxml"));
 
     Pane myPane = (Pane) myLoader.load();
     Scene myScene = new Scene(myPane);

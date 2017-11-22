@@ -1,5 +1,6 @@
 package amss.app.Elementos;
 
+import amss.app.Connection.Medicina_Model;
 import amss.app.Elementos.Medicina;
 import amss.app.util.Uuid;
 import amss.app.util.Time;
@@ -27,7 +28,19 @@ public class RecetaMedicina extends Medicina{
 
   public RecetaMedicina(Medicina medicina, Receta recetaMedicina, int bMorning, int bEvening, int bNight, Time tEndDate) {
     this.id = medicina.id;
+    this.strNombre = medicina.getNombre();
     this.recetaId = recetaMedicina.getId();
+    this.strNombre = medicina.strNombre;
+    this.bMorning = bMorning;
+    this.bEvening = bEvening;
+    this.bNight = bNight;
+    this.tEndDate = tEndDate;
+  }
+
+  public RecetaMedicina(Medicina medicina, Uuid recetaMedicina, int bMorning, int bEvening, int bNight, Time tEndDate) {
+    this.id = medicina.id;
+    this.strNombre = medicina.getNombre();
+    this.recetaId = recetaMedicina;
     this.strNombre = medicina.strNombre;
     this.bMorning = bMorning;
     this.bEvening = bEvening;

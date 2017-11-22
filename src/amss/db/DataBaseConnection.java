@@ -22,7 +22,7 @@ public final class DataBaseConnection {
     } else {
       try {
         Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection("jdbc:sqlite:./bin/amss/db/Database.db");
+        c = DriverManager.getConnection("jdbc:sqlite:./Database.db");
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
       } catch (Exception e) {
@@ -356,16 +356,6 @@ public final class DataBaseConnection {
     return found;
   }
 
-  String sql = "CREATE TABLE RECOMENDACIONES " +
-      "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
-      " TITULO           CHAR(50)                NOT NULL, " +
-      " CONTENIDO        TEXT                    NOT NULL, " +
-      " INQUILINO        VARCHAR(16)             NOT NULL, " +
-      " STAFF            VARCHAR(16)             NOT NULL, " +
-      " FECHA            BIGINT                  NOT NULL, " +
-      " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID), " +
-      " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
-
   public Collection<Recomendaciones> getRecomendaciones(Vector<String> parameters, String str) {
 
     final Collection<Recomendaciones> found = new ArrayList<>();
@@ -407,6 +397,46 @@ public final class DataBaseConnection {
     return found;
   }
 
+  public Collection<Eventualidades> getEventualidades(Vector<String> parameters, String str) {
+
+    final Collection<Eventualidades> found = new ArrayList<>();
+    int iParCounter = 1;
+
+    open();
+    try {
+
+      PreparedStatement stmt = c.prepareStatement(str);
+
+      for(String parameter : parameters) {
+        stmt.setString(iParCounter, parameter);
+        iParCounter++;
+      }
+
+      ResultSet rs = stmt.executeQuery();
+
+      while (rs.next()) {
+        Uuid eventualidadId = Uuid.parse(rs.getString("ID"));
+        String eventualidadTitulo = rs.getString("TITULO");
+        String eventualidadContenido = rs.getString("CONTENIDO");
+        Uuid eventualidadStaff = Uuid.parse(rs.getString("STAFF"));
+        Time fecha = Time.fromMs(rs.getLong("FECHA"));
+
+        Eventualidades eventualidad = new Eventualidades(eventualidadId, eventualidadTitulo, eventualidadContenido, eventualidadStaff, fecha);
+        found.add(eventualidad);
+      }
+
+      rs.close();
+      stmt.close();
+
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+
+    close();
+    return found;
+  }
+
   // Recupera las medicinas del paciente en base a una query de la union de las tablas de MEDICINA_PACIENTE
   // y MEDICINA
   public Collection<PacienteMedicina> getMedicinasOfPaciente(Vector<String> parameters, String str) {
@@ -433,6 +463,47 @@ public final class DataBaseConnection {
 
         PacienteMedicina pacienteMedicina = new PacienteMedicina(medicinaID, pacienteID, cantidad);
         found.add(pacienteMedicina);
+      }
+
+      rs.close();
+      stmt.close();
+
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+
+    close();
+    return found;
+  }
+
+  public Collection<Depositos> getDepositos(Vector<String> parameters, String str) {
+
+    final Collection<Depositos> found = new ArrayList<>();
+    int iParCounter = 1;
+
+    open();
+    try {
+
+      PreparedStatement stmt = c.prepareStatement(str);
+
+      for(String parameter : parameters) {
+        stmt.setString(iParCounter, parameter);
+        iParCounter++;
+      }
+
+      ResultSet rs = stmt.executeQuery();
+
+      while (rs.next()) {
+        Uuid depositoId = Uuid.parse(rs.getString("ID"));
+        Uuid inquilinoId = Uuid.parse(rs.getString("INQUILINO"));
+        Uuid familiarId = Uuid.parse(rs.getString("FAMILIAR"));
+        Uuid medicinaId = Uuid.parse(rs.getString("MEDICINA"));
+        int cantidad = rs.getInt("CANTIDAD");
+        Time fecha = Time.fromMs(rs.getLong("FECHA"));
+
+        Depositos deposito = new Depositos(depositoId, inquilinoId, familiarId, medicinaId, cantidad, fecha);
+        found.add(deposito);
       }
 
       rs.close();
@@ -610,12 +681,48 @@ public final class DataBaseConnection {
       stmt = c.prepareStatement(sql);
       stmt.executeUpdate();
       stmt.close();
-      c.commit();
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
     System.out.println("Table <RECOMENDACIONES> created successfully");
+
+    try {
+      String sql = "CREATE TABLE EVENTUALIDADES " +
+          "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " TITULO           CHAR(50)                NOT NULL, " +
+          " CONTENIDO        TEXT                    NOT NULL, " +
+          " STAFF            VARCHAR(16)             NOT NULL, " +
+          " FECHA            BIGINT                  NOT NULL, " +
+          " FOREIGN KEY(STAFF) REFERENCES STAFF(ID))";
+      stmt = c.prepareStatement(sql);
+      stmt.executeUpdate();
+      stmt.close();
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+    System.out.println("Table <EVENTUALIDADES> created successfully");
+
+    try {
+      String sql = "CREATE TABLE DEPOSITOS " +
+          "(ID               VARCHAR(16) PRIMARY KEY NOT NULL, " +
+          " INQUILINO        VARCHAR(16)             NOT NULL, " +
+          " FAMILIAR         VARCHAR(16)             NOT NULL, " +
+          " MEDICINA         VARCHAR(16)             NOT NULL, " +
+          " CANTIDAD         INTEGER                 NOT NULL, " +
+          " FECHA            BIGINT                  NOT NULL, " +
+          " FOREIGN KEY(INQUILINO) REFERENCES INQUILINOS(ID)," +
+          " FOREIGN KEY(FAMILIAR) REFERENCES FAMILIARES(ID))";
+      stmt = c.prepareStatement(sql);
+      stmt.executeUpdate();
+      stmt.close();
+      c.commit();
+    } catch (Exception e) {
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
+      System.exit(0);
+    }
+    System.out.println("Table <DEPOSITOS> created successfully");
 
     close();
   }
@@ -667,6 +774,16 @@ public final class DataBaseConnection {
 
       stmt = c.createStatement();
       sql = "DROP TABLE RECOMENDACIONES";
+      stmt.executeUpdate(sql);
+      stmt.close();
+
+      stmt = c.createStatement();
+      sql = "DROP TABLE EVENTUALIDADES";
+      stmt.executeUpdate(sql);
+      stmt.close();
+
+      stmt = c.createStatement();
+      sql = "DROP TABLE DEPOSITOS";
       stmt.executeUpdate(sql);
       stmt.close();
 
